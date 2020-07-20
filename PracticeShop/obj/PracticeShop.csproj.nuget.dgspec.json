@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\Dorennor\\Practice\\PracticeShop\\PracticeShop.csproj": {}
+    "C:\\Users\\User\\Source\\Repos\\Dorennor\\Practice\\PracticeShop\\PracticeShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\Dorennor\\Practice\\PracticeShop\\PracticeShop.csproj": {
+    "C:\\Users\\User\\Source\\Repos\\Dorennor\\Practice\\PracticeShop\\PracticeShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\Dorennor\\Practice\\PracticeShop\\PracticeShop.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\Dorennor\\Practice\\PracticeShop\\PracticeShop.csproj",
         "projectName": "PracticeShop",
-        "projectPath": "C:\\Users\\User\\source\\repos\\Dorennor\\Practice\\PracticeShop\\PracticeShop.csproj",
+        "projectPath": "C:\\Users\\User\\Source\\Repos\\Dorennor\\Practice\\PracticeShop\\PracticeShop.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\Dorennor\\Practice\\PracticeShop\\obj\\",
+        "outputPath": "C:\\Users\\User\\Source\\Repos\\Dorennor\\Practice\\PracticeShop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
