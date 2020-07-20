@@ -1,0 +1,41 @@
+﻿@model List<Game>
+
+@{ 
+    Layout = "_Layout";
+}
+
+<div>
+    <table class="table">
+        <tr>
+            <td>
+                <p>Название игры</p>
+            </td>
+            <td>
+                <p>Жанр</p>
+            </td>
+            <td>
+                <p>Издатель</p>
+            </td>
+            <td>
+                <p>Цена в $</p>
+            </td>
+        </tr>
+        @foreach (Game game in Model)
+        {
+            <tr>
+                <td>
+                    <p>@game.Name</p>
+                </td>
+                <td>
+                    <p>@game.Genre</p>
+                </td>
+                <td>
+                    <p>@game.Publisher</p>
+                </td>
+                <td>
+                    <p>@game.Price</p>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
