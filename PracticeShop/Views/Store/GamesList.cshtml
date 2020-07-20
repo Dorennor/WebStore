@@ -1,9 +1,5 @@
 ﻿@model IEnumerable<PracticeShop.Models.Game>;
 
-@{
-    ViewData["Title"] = "Home Page";
-}
-
 <div>
     <table class="table">
         <tr>
@@ -45,14 +41,14 @@
                     {
                         <form method="post" asp-controller="Store" asp-action="BuyGame">
                             @Html.Hidden("gameID", game.ID)
-                            <input type="submit" value="Купить" />
+                            <input type="submit" value="Купить" class="button" />
                         </form>
                     }
                     else
                     {
                         <form method="post" asp-controller="Store" asp-action="AddToLibrary">
                             @Html.Hidden("gameID", game.ID)
-                            <input type="submit" value="Добавить в библиотеку" />
+                            <input type="submit" value="Добавить в библиотеку"  class="button" />
                         </form>
                     }
                 </td>

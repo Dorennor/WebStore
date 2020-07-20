@@ -1,11 +1,15 @@
 
-p{
+*
+{
 	color: white;
 }
 
-.button{
-	height: inherit;
-	width: inherit;
+input {
+	color: black;
+}
+
+.button {
+	width: 200px;
 }
 
 .table-list
@@ -13,7 +17,8 @@ p{
 	padding: 5%;
 }
 
-header{
+header
+{
 	min-width:100%;
 	position:relative;
 	height:inherit;
@@ -109,10 +114,10 @@ header input::-webkit-input-placeholder{
 	text-align:center;
 }
 
-div.tag {
-	background-image:url(../image/back/back7.jpg);
+div.titleTag {
+	background-image: url(../image/back/back7.jpg);
 	background-size: inherit auto;
-	height: content;
+	height: auto;
 	font-family: 'squealer embossed', arial;
 	text-align: center;
 	color: White;

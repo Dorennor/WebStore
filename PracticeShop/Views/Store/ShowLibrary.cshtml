@@ -1,9 +1,5 @@
 ﻿@model List<Game>
 
-@{ 
-    Layout = "_Layout";
-}
-
 <div>
     <table class="table">
         <tr>
@@ -15,9 +11,6 @@
             </td>
             <td>
                 <p>Издатель</p>
-            </td>
-            <td>
-                <p>Цена в $</p>
             </td>
         </tr>
         @foreach (Game game in Model)
@@ -31,9 +24,6 @@
                 </td>
                 <td>
                     <p>@game.Publisher</p>
-                </td>
-                <td>
-                    <p>@game.Price</p>
                 </td>
             </tr>
         }
