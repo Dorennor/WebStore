@@ -37,8 +37,7 @@ namespace PracticeShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddToLibrary(int gameID) => 
-            View("AddToLibrary", AddGameToLibrary(gameID));
+        public IActionResult AddToLibrary(int gameID) => View("AddToLibrary", AddGameToLibrary(gameID));
 
         [HttpPost]
         public IActionResult BuyGame(int gameID) => View("BuyGame", AddGameToLibrary(gameID));
@@ -70,16 +69,13 @@ namespace PracticeShop.Controllers
             _db.SaveChanges();
         }
 
-        private bool CheckGame(int gameID) => 
-            _userGameList.Where(g => g.ID == gameID).ToList().Count > 0;
+        private bool CheckGame(int gameID) => _userGameList.Where(g => g.ID == gameID).ToList().Count > 0;
 
         private bool IsUserHasLibrary => _libraryList.Count >= 1;
 
-        private List<Game> _userGameList =>
-            JsonSerializer.Deserialize<List<Game>>(_libraryList.Last().GamesID);
+        private List<Game> _userGameList => JsonSerializer.Deserialize<List<Game>>(_libraryList.Last().GamesID);
 
-        private List<Library> _libraryList =>
-            _db.Libraries.Where(l => l.UserName == User.Identity.Name).ToList();
+        private List<Library> _libraryList => _db.Libraries.Where(l => l.UserName == User.Identity.Name).ToList();
 
         private void CreateLibraryWithGame(int gameID)
         {

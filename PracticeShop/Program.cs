@@ -23,7 +23,7 @@ namespace PracticeShop
                 try
                 {
                     var context = services.GetRequiredService<StoreContextDB>();
-                    Initializer.Initialize(context);
+                    StoreInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {

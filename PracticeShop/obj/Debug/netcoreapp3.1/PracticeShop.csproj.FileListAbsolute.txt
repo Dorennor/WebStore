@@ -248,3 +248,4 @@ C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\PracticeShop.dll
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\PracticeShop.pdb
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\PracticeShop.genruntimeconfig.cache
+C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_MainLayout.cshtml.g.cs

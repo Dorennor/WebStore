@@ -1,4 +1,18 @@
 
+p{
+	color: white;
+}
+
+.button{
+	height: inherit;
+	width: inherit;
+}
+
+.table-list
+{
+	padding: 5%;
+}
+
 header{
 	min-width:100%;
 	position:relative;
@@ -15,7 +29,7 @@ header{
 body {
 	background-color: black;
 	background-image: url(../image/back/back10.jpg);
-	background-size:;
+	/*background-size:;*/
 }
 
 
@@ -171,3 +185,5 @@ aside img{
 	background-image: url(../image/back/back4.png);
 	background-size: 100px;
 }
+
+

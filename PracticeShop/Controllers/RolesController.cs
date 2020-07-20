@@ -10,7 +10,7 @@ using PracticeShop.ViewModels;
 
 namespace PracticeShop.Controllers
 {
-    [Authorize(Roles = "Администратор")]
+    //[Authorize(Roles = "Администратор")]
     public class RolesController : Controller
     {
         RoleManager<IdentityRole> _roleManager;
