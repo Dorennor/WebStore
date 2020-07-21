@@ -6,8 +6,5 @@ using System.Threading.Tasks;
 
 namespace PracticeShop.Models
 {
-    public class User : IdentityUser
-    {
-        public string Login { get; set; }
-    }
+    public class User : IdentityUser { }
 }

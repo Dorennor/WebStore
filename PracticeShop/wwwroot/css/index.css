@@ -1,11 +1,17 @@
 
-*
-{
+* {
 	color: white;
 }
 
 input {
 	color: black;
+}
+
+.TitleText{
+	font-size: 50px;
+	font-weight: 500;
+	text-align: center;
+	padding-bottom: 5%;
 }
 
 .button {
@@ -17,28 +23,22 @@ input {
 	padding: 5%;
 }
 
-header
-{
-	min-width:100%;
-	position:relative;
-	height:inherit;
-	width:100%;
-	display:flex;
-	background:linear-gradient(#ff0000,#390000);
+header {
+	min-width: 100%;
+	position: relative;
+	height: inherit;
+	width: 100%;
+	display: flex;
+	background: linear-gradient(#ff0000,#390000);
 	top: 0;
 	left: 0;
-	font-family: 'Squealer Embossed', arial;
 	
 }
 
 body {
 	background-color: black;
 	background-image: url(../image/back/back10.jpg);
-	/*background-size:;*/
 }
-
-
-/*div, mainб, aside {border:1px solid white;}*/
 
 .logo{
 	width:150px;
@@ -48,16 +48,19 @@ body {
 }
 
 .dropbtn {
-	
-    height:120px;
-	width:content;
-    padding: 15px;
-    font-size: 40px;
-    border: none;
-	background:linear-gradient(#ff0000,#390000);
-	font-family: 'Squealer Embossed', arial;
-	color:white;
+	height: 120px;
+	width: inherit;
+	padding: 15px;
+	font-size: 40px;
+	border: none;
+	background: linear-gradient(#ff0000,#390000);
+	color: white;
 }
+
+.main-button{
+	position:inherit
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -83,15 +86,14 @@ body {
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background: linear-gradient(#ff0000,#010000);}
 
-.dropdown-content input{
-	font-family: 'Squealer Embossed', arial;
-	border:1px solid black;
-	background:linear-gradient(45deg,#390000, #ff0000);
-    color:white;
-    padding: 15px 16px;
-    text-decoration: none;
-    display: block;
-	border-radius:25px;
+.dropdown-content input {
+	border: 1px solid black;
+	background: linear-gradient(45deg,#390000, #ff0000);
+	color: white;
+	padding: 15px 16px;
+	text-decoration: none;
+	display: block;
+	border-radius: 25px;
 	font-size: 15px;
 }
 form.dropdown-content.login{
@@ -118,7 +120,6 @@ div.titleTag {
 	background-image: url(../image/back/back7.jpg);
 	background-size: inherit auto;
 	height: auto;
-	font-family: 'squealer embossed', arial;
 	text-align: center;
 	color: White;
 	font-size: 50px;
@@ -141,7 +142,7 @@ div.tag p{
 
 aside{
 	width:300px;;
-	height:justify;
+	height: inherit;
 	float:left;
 }
 
@@ -154,7 +155,7 @@ main {
 	border-image-source: url(../image/border/border11.png);
 	width: 100%;
 	min-width: 500px;
-	height: content;
+	height: inherit;
 	float: left;
 	background-image: url(../image/back/back4.png);
 	background-size: 100px;
@@ -173,14 +174,14 @@ aside img{
 	float:right;
 }
 
-.main{
-	display:flex;
-	height:content;
+.main {
+	display: flex;
+	height: inherit;
 }
 
 .side-div {
 	width: inherit;
-	height: content;
+	height: inherit;
 	border-style: solid;
 	border-image-slice: 140;
 	border-image-width: 45px;

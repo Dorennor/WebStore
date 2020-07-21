@@ -11,16 +11,21 @@ namespace PracticeShop.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private StoreContextDB _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(StoreContextDB context)
         {
-            _logger = logger;
+            _db = context;
         }
 
-        public IActionResult Index() => View();
+        [HttpGet]
+        public IActionResult Index()
+        {
+            var games = _db.Games.ToList().GetRange(_db.Games.ToList().Count - 10, 10);
+            games.Reverse();
+            return View(games);
+        }
         
-
         public IActionResult Privacy() => View();
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

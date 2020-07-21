@@ -12,35 +12,58 @@
     <body>
         <header>
             <a href="#"><img class="logo" src="~/image/logo.png"></a>
-            <div class="dropdown">
-                <button class="dropbtn">MENU</button>
+
+            <div class="container">
+
+
+                <div class="dropdown">                
+                    <button class="dropbtn">МЕНЮ</button>
                 <div class="dropdown-content menu">
+                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
                     <a class="nav-link text-white" asp-area="" asp-controller="Store" asp-action="GamesList">Магазин</a>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <a class="nav-link text-white" asp-area="" asp-controller="Store" asp-action="ShowLibrary">Библиотека</a>
                     }
-                    @if (User.IsInRole("Администратор"))
+                    @if (User.IsInRole("admin"))
                     {
                         <a class="nav-link text-white" asp-area="" asp-controller="Store" asp-action="AddGame">Добавить игру</a>
                         <a class="nav-link text-white" asp-area="" asp-controller="Roles" asp-action="Index">Менеджмент ролей</a>
                     }
                 </div>
             </div>
+                @if (User.Identity.IsAuthenticated)
+            {
+                <div>
+                    <form class="text-lg-right" method="post" asp-controller="Account" asp-action="Logout">
+                        <label>@User.Identity.Name</label>
+                        <input type="submit" value="Выход" />
+                    </form>
+                </div>
+            }
+            else
+            {
+                <div class="dropdown login">
+                    <button class="dropbtn search">Вход</button>
+                    <form class="dropdown-content login" method="post">
+                            <a asp-controller="Account" asp-action="Login">Вход</a><br />
+                            <a asp-controller="Account" asp-action="Register">Регистрация</a><br />
+                    </form>
+                </div>
+            }
+            </div>
+
+            
+
+
+
             @*<div class="dropdown">
-                <button class="dropbtn">SEARCH</button>
-                <form class="dropdown-content">
-                    <input type="search" name="search" placeholder="search">
-                </form>
-            </div>*@
-            @*<div class="dropdown login">
-                <button class="dropbtn search">LOGIN</button>
-                <form class="dropdown-content login">
-                    <input type="text" name="login" placeholder="Login">
-                    <input type="password" name="password" placeholder="Password">
-                    <a href="#">Register</a>
-                </form>
-            </div>*@
+            <button class="dropbtn">SEARCH</button>
+            <form class="dropdown-content">
+                <input type="search" name="search" placeholder="search">
+            </form>
+        </div>*@
+            
         </header>
         <div>
 

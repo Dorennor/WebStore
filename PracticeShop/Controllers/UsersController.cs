@@ -10,7 +10,7 @@ using PracticeShop.ViewModels;
 
 namespace PracticeShop.Controllers
 {
-    [Authorize(Roles = "Администратор")]
+    [Authorize(Roles = "admin")]
     public class UsersController : Controller
     {
         UserManager<User> _userManager;
@@ -29,7 +29,7 @@ namespace PracticeShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, Login = model.Login };
+                User user = new User { Email = model.Email, UserName = model.UserName };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -53,7 +53,7 @@ namespace PracticeShop.Controllers
             {
                 return NotFound();
             }
-            EditUserViewModel model = new EditUserViewModel { Id = user.Id, Email = user.Email, Login = user.Login };
+            EditUserViewModel model = new EditUserViewModel { Id = user.Id, Email = user.UserName };
             return View(model);
         }
 
@@ -66,8 +66,7 @@ namespace PracticeShop.Controllers
                 if (user != null)
                 {
                     user.Email = model.Email;
-                    user.UserName = model.Email;
-                    user.Login = model.Login;
+                    user.UserName = model.UserName;
 
                     var result = await _userManager.UpdateAsync(user);
                     if (result.Succeeded)

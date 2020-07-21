@@ -9,12 +9,12 @@ namespace PracticeShop.ViewModels
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "UserName")]
         public string Email { get; set; }
 
         [Required]
-        [Display(Name = "Логин")]
-        public string Login { get; set; }
+        [Display(Name = "Имя пользователя")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

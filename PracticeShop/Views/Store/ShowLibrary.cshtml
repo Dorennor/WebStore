@@ -1,7 +1,9 @@
 ﻿@model List<Game>
 
 <div>
-    <table class="table">
+    @if (Model != null)
+    {
+        <table class="table">
         <tr>
             <td>
                 <p>Название игры</p>
@@ -28,4 +30,9 @@
             </tr>
         }
     </table>
+    }
+    else
+    {
+        <p class="text-white">Ваша блиблиотека пуста!</p>
+    }
 </div>

@@ -34,7 +34,14 @@
                     <p>@game.Publisher</p>
                 </td>
                 <td>
-                    <p>@game.Price</p>
+                    @if (game.Price == 0)
+                    {
+                        <p>Бесплатно</p>
+                    }
+                    else
+                    {
+                        <p>@game.Price</p>
+                    }
                 </td>
                 <td>
                     @if (game.Price > 0)
