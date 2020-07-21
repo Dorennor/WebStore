@@ -18,17 +18,8 @@ namespace PracticeShop.Controllers
         }
 
         [HttpGet]
-        public IActionResult ShowLibrary()
-        {
-            if (_userGameList != null)
-            {
-                return View(_userGameList);
-            }
-            else
-            {
-                return View();
-            }
-        }
+        public IActionResult ShowLibrary() => View(_userGameList);
+
         [HttpGet]
         public IActionResult GamesList() => View(_db.Games.OrderBy(g => g.Name).ToList());
 
