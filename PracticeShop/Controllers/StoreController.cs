@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using PracticeShop.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using PracticeShop.Models;
 
 namespace PracticeShop.Controllers
 {
@@ -96,6 +96,12 @@ namespace PracticeShop.Controllers
 
             _db.Libraries.Add(new Library(User.Identity.Name, JsonSerializer.Serialize(games)));
             _db.SaveChanges();
+        }
+
+        [HttpGet]
+        public IActionResult Check()
+        {
+            return View("Account/Login");
         }
     }
 }

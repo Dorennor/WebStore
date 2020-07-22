@@ -20546,6 +20546,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\User\\source\\repos\\Dorennor\\Practice\\PracticeShop\\Views\\Users\\Profile.cshtml",
+      "TargetPath": "Views\\Users\\Profile.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\User\\source\\repos\\Dorennor\\Practice\\PracticeShop\\Views\\Roles\\Edit.cshtml",
       "TargetPath": "Views\\Roles\\Edit.cshtml",
       "FileKind": "mvc"

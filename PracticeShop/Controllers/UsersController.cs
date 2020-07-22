@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PracticeShop.Models;
 using PracticeShop.ViewModels;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PracticeShop.Controllers
 {
-    [Authorize(Roles = "admin")]
     public class UsersController : Controller
     {
-        UserManager<User> _userManager;
+        private UserManager<User> _userManager;
 
         public UsersController(UserManager<User> userManager)
         {
@@ -24,6 +21,7 @@ namespace PracticeShop.Controllers
 
         public IActionResult Create() => View();
 
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> Create(CreateUserViewModel model)
         {
@@ -94,6 +92,11 @@ namespace PracticeShop.Controllers
                 IdentityResult result = await _userManager.DeleteAsync(user);
             }
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Profile()
+        {
+            return View();
         }
     }
 }

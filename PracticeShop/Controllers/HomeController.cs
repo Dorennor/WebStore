@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using PracticeShop.Models;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using PracticeShop.Models;
 
 namespace PracticeShop.Controllers
 {
@@ -25,7 +21,7 @@ namespace PracticeShop.Controllers
             games.Reverse();
             return View(games);
         }
-        
+
         public IActionResult Privacy() => View();
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

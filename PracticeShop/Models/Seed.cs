@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace PracticeShop.Models
 {
@@ -11,7 +6,7 @@ namespace PracticeShop.Models
     {
         public static void Initialize(StoreContextDB context)
         {
-            if(!context.Games.Any())
+            if (!context.Games.Any())
             {
                 context.AddRange(
                     new Game
@@ -127,7 +122,7 @@ namespace PracticeShop.Models
                         Price = 0
                     }
                     );
-                context.SaveChanges();              
+                context.SaveChanges();
             }
         }
     }
