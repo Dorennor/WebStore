@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PracticeShop.Models;
 using PracticeShop.ViewModels;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PracticeShop.Controllers
 {
-    [Authorize(Roles = "Администратор")]
     public class UsersController : Controller
     {
-        UserManager<User> _userManager;
+        private UserManager<User> _userManager;
 
         public UsersController(UserManager<User> userManager)
         {
@@ -24,12 +21,13 @@ namespace PracticeShop.Controllers
 
         public IActionResult Create() => View();
 
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> Create(CreateUserViewModel model)
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, Login = model.Login };
+                User user = new User { Email = model.Email, UserName = model.UserName };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -53,7 +51,7 @@ namespace PracticeShop.Controllers
             {
                 return NotFound();
             }
-            EditUserViewModel model = new EditUserViewModel { Id = user.Id, Email = user.Email, Login = user.Login };
+            EditUserViewModel model = new EditUserViewModel { Id = user.Id, Email = user.UserName };
             return View(model);
         }
 
@@ -66,8 +64,7 @@ namespace PracticeShop.Controllers
                 if (user != null)
                 {
                     user.Email = model.Email;
-                    user.UserName = model.Email;
-                    user.Login = model.Login;
+                    user.UserName = model.UserName;
 
                     var result = await _userManager.UpdateAsync(user);
                     if (result.Succeeded)
@@ -95,6 +92,11 @@ namespace PracticeShop.Controllers
                 IdentityResult result = await _userManager.DeleteAsync(user);
             }
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Profile()
+        {
+            return View();
         }
     }
 }

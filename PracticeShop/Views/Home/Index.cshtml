@@ -1,4 +1,47 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model List<Game>;
 
+<div>
+    <div>
+        <p class="TitleText">НОВИНКИ</p>
+    </div>
+    <table class="table">
+        <tr>
+            <td>
+                <p>Название игры</p>
+            </td>
+            <td>
+                <p>Жанр</p>
+            </td>
+            <td>
+                <p>Издатель</p>
+            </td>
+            <td>
+                <p>Цена в $</p>
+            </td>
+        </tr>
+        @foreach (var game in Model)
+        {
+            <tr>
+                <td>
+                    <p>@game.Name</p>
+                </td>
+                <td>
+                    <p>@game.Genre</p>
+                </td>
+                <td>
+                    <p>@game.Publisher</p>
+                </td>
+                <td>
+                    @if (game.Price == 0)
+                    {
+                        <p>Бесплатно</p>
+                    }
+                    else
+                    {
+                        <p>@game.Price</p>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>

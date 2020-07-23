@@ -2,21 +2,20 @@
 
 <h2>Вход в приложение</h2>
 
-<form method="post" asp-controller="Account" asp-action="Login"
-      asp-route-returnUrl="@Model.ReturnUrl">
+<form method="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
-        <label asp-for="Email"></label><br />
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
+        <label asp-for="UserName">Имя пользователя</label><br />
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
     </div>
     <div>
-        <label asp-for="Password"></label><br />
+        <label asp-for="Password">Пароль</label><br />
         <input asp-for="Password" />
         <span asp-validation-for="Password"></span>
     </div>
     <div>
-        <label asp-for="RememberMe"></label>
+        <label asp-for="RememberMe">Запомнить меня</label>
         <input asp-for="RememberMe" />
     </div>
     <div>

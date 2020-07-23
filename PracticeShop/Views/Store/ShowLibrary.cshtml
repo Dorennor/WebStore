@@ -1,11 +1,9 @@
 ﻿@model List<Game>
 
-@{ 
-    Layout = "_Layout";
-}
-
 <div>
-    <table class="table">
+    @if (Model != null)
+    {
+        <table class="table">
         <tr>
             <td>
                 <p>Название игры</p>
@@ -15,9 +13,6 @@
             </td>
             <td>
                 <p>Издатель</p>
-            </td>
-            <td>
-                <p>Цена в $</p>
             </td>
         </tr>
         @foreach (Game game in Model)
@@ -32,10 +27,12 @@
                 <td>
                     <p>@game.Publisher</p>
                 </td>
-                <td>
-                    <p>@game.Price</p>
-                </td>
             </tr>
         }
     </table>
+    }
+    else
+    {
+        <p class="text-white">Ваша библиотека пуста!</p>
+    }
 </div>
