@@ -99,11 +99,11 @@ namespace PracticeShop.Controllers
             _db.SaveChanges();
         }
 
-        //[HttpGet]
-        //public IActionResult Check()
-        //{
-        //    return View("Account/Login");
-        //}
+        [HttpGet]
+        public IActionResult Check()
+        {
+            return View("Account/Login");
+        }
 
         public IActionResult DeleteGame() => View(_db.Games);
 
@@ -126,42 +126,32 @@ namespace PracticeShop.Controllers
 
         public IActionResult EditGameView() => View(_db.Games);
 
-        //[HttpGet]
-        //public IActionResult EditGame(int id)
-        //{
-        //    Game game = _db.Games.Find(id);
-        //    if (game == null)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpGet]
+        public IActionResult EditGame(int id)
+        {
+            Game game = _db.Games.Find(id);
+            if (game == null)
+            {
+                return NotFound();
+            }
 
-        //    EditGameViewModel model = new EditGameViewModel { Name = game.Name, Genre = game.Genre, Publisher = game.Publisher, Price = game.Price };
-        //    return View(model);
-        //}
+            EditGameViewModel model = new EditGameViewModel { Name = game.Name, Genre = game.Genre, Publisher = game.Publisher, Price = game.Price };
+            return View(model);
+        }
 
         [HttpPost]
-        public async Task<IActionResult> EditGameAsync(EditGameViewModel model)
+        public IActionResult EditGame(EditGameViewModel model)
         {
+            Game game = _db.Games.Find(model.Id);
             if (ModelState.IsValid)
             {
-                Game game = await _db.Games.FindAsync(model.Id);
                 if (game != null)
                 {
                     game.Name = model.Name;
                     game.Genre = model.Genre;
                     game.Publisher = model.Publisher;
                     game.Price = model.Price;
-
-                    try
-                    {
-                        _db.Games.Update(game);
-                        await _db.SaveChangesAsync();
-                    }
-                    catch
-                    {
-                        ViewBag.Message = "Возникла непредвиденная ошибка!";
-                        return View("EditResult");
-                    }
+                    _db.SaveChanges();
                 }
             }
             ViewBag.Message = "Данные игры были упешно отредактированы!";

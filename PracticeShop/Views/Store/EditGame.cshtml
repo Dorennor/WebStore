@@ -1,9 +1,23 @@
-﻿@model PracticeShop.ViewModels.EditGameViewModel;
+﻿@model PracticeShop.ViewModels.EditGameViewModel
 
-<form method="post" asp-action="EditGame" asp-controller="Store" asp-route-model="@Model">
-    <div>
-        <label></label>
-        <label asp-for="Name">Название игры</label>
-        <input asp-for="Name"/>
-    </div>
-</form>
+    <form method="post" asp-action="EditGame" asp-controller="Store">
+        <div>
+            <label asp-for="Name">Название игры</label><br />
+            <input type="text" asp-for="Name" value="@Model.Name" />
+        </div>
+        <div>
+            <label asp-for="Genre">Жанр</label><br />
+            <input type="text" asp-for="Genre" value="@Model.Genre" />
+        </div>
+        <div>
+            <label asp-for="Publisher">Издатеь</label><br />
+            <input type="text" asp-for="Publisher" value="@Model.Publisher" />
+        </div>
+        <div>
+            <label asp-for="Price">Цена</label><br />
+            <input type="number" asp-for="Price" value="@Model.Price" />
+        </div>
+        <div>
+            <input type="submit" value="Сохранить изменения" />
+        </div>
+    </form>
