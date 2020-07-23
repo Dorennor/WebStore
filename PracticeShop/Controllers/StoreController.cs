@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PracticeShop.Models;
+using PracticeShop.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
@@ -37,39 +38,39 @@ namespace PracticeShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddToLibrary(int gameID) => View("AddToLibrary", AddGameToLibrary(gameID));
+        public IActionResult AddToLibrary(int id) => View("AddToLibrary", AddGameToLibrary(id));
 
         [HttpPost]
-        public IActionResult BuyGame(int gameID) => View("BuyGame", AddGameToLibrary(gameID));
+        public IActionResult BuyGame(int id) => View("BuyGame", AddGameToLibrary(id));
 
-        private string AddGameToLibrary(int gameID)
+        private string AddGameToLibrary(int id)
         {
             if (!IsUserHasLibrary)
             {
-                CreateLibraryWithGame(gameID);
+                CreateLibraryWithGame(id);
             }
             else
             {
-                if (CheckGame(gameID))
+                if (CheckGame(id))
                 {
                     return "Игра уже находится в Вашей библиотеке!";
                 }
 
-                Write(gameID);
+                Write(id);
             }
 
             return "Игра была добавлена в Вашу библиотеку!";
         }
 
-        private void Write(int gameID)
+        private void Write(int id)
         {
             var games = JsonSerializer.Deserialize<List<Game>>(_libraryList.Last().GamesID);
-            games.Add(_db.Games.Find(gameID));
+            games.Add(_db.Games.Find(id));
             _libraryList.FirstOrDefault().GamesID = JsonSerializer.Serialize(games);
             _db.SaveChanges();
         }
 
-        private bool CheckGame(int gameID) => _userGameList.Where(g => g.ID == gameID).ToList().Count > 0;
+        private bool CheckGame(int id) => _userGameList.Where(g => g.ID == id).ToList().Count > 0;
 
         private bool IsUserHasLibrary => _libraryList.Count >= 1;
 
@@ -90,18 +91,81 @@ namespace PracticeShop.Controllers
 
         private List<Library> _libraryList => _db.Libraries.Where(l => l.UserName == User.Identity.Name).ToList();
 
-        private void CreateLibraryWithGame(int gameID)
+        private void CreateLibraryWithGame(int id)
         {
-            var games = new List<Game> { _db.Games.Find(gameID) };
+            var games = new List<Game> { _db.Games.Find(id) };
 
             _db.Libraries.Add(new Library(User.Identity.Name, JsonSerializer.Serialize(games)));
             _db.SaveChanges();
         }
 
-        [HttpGet]
-        public IActionResult Check()
+        //[HttpGet]
+        //public IActionResult Check()
+        //{
+        //    return View("Account/Login");
+        //}
+
+        public IActionResult DeleteGame() => View(_db.Games);
+
+        [HttpDelete]
+        public IActionResult DeleteGame(int id)
         {
-            return View("Account/Login");
+            try
+            {
+                _db.Games.Remove(_db.Games.Where(g => g.ID == id).First());
+                _db.SaveChanges();
+                ViewBag.Message = "Игра была удалена из магазина!";
+                return View("DeleteResult");
+            }
+            catch
+            {
+                ViewBag.Message = "Возникла непредвиденная ошибка!";
+                return View("DeleteResult");
+            }
+        }
+
+        public IActionResult EditGameView() => View(_db.Games);
+
+        //[HttpGet]
+        //public IActionResult EditGame(int id)
+        //{
+        //    Game game = _db.Games.Find(id);
+        //    if (game == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    EditGameViewModel model = new EditGameViewModel { Name = game.Name, Genre = game.Genre, Publisher = game.Publisher, Price = game.Price };
+        //    return View(model);
+        //}
+
+        [HttpPost]
+        public async Task<IActionResult> EditGameAsync(EditGameViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Game game = await _db.Games.FindAsync(model.Id);
+                if (game != null)
+                {
+                    game.Name = model.Name;
+                    game.Genre = model.Genre;
+                    game.Publisher = model.Publisher;
+                    game.Price = model.Price;
+
+                    try
+                    {
+                        _db.Games.Update(game);
+                        await _db.SaveChangesAsync();
+                    }
+                    catch
+                    {
+                        ViewBag.Message = "Возникла непредвиденная ошибка!";
+                        return View("EditResult");
+                    }
+                }
+            }
+            ViewBag.Message = "Данные игры были упешно отредактированы!";
+            return View("EditResult");
         }
     }
 }

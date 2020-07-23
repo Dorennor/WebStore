@@ -1,0 +1,9 @@
+﻿@model PracticeShop.ViewModels.EditGameViewModel;
+
+<form method="post" asp-action="EditGame" asp-controller="Store" asp-route-model="@Model">
+    <div>
+        <label></label>
+        <label asp-for="Name">Название игры</label>
+        <input asp-for="Name"/>
+    </div>
+</form>

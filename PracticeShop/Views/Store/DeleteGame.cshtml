@@ -1,0 +1,29 @@
+﻿@model IEnumerable<PracticeShop.Models.Game>;
+
+<div>
+    <table class="table">
+        <tr>
+            <td>
+                <p>Название игры</p>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        @foreach (var game in Model)
+        {
+            <tr>
+                <td>
+                    <p>@game.Name</p>
+                </td>
+                <td>
+                    <form method="delete" asp-route-id="@game.ID" asp-action="DeleteGame">
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Удалить
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

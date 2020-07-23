@@ -46,15 +46,13 @@
                 <td>
                     @if (game.Price > 0)
                     {
-                        <form method="post" asp-controller="Store" asp-action="BuyGame">
-                            @Html.Hidden("gameID", game.ID)
+                        <form method="post" asp-action="BuyGame" asp-route-id="@game.ID">
                             <input type="submit" value="Купить" class="button" />
                         </form>
                     }
                     else
                     {
-                        <form method="post" asp-controller="Store" asp-action="AddToLibrary">
-                            @Html.Hidden("gameID", game.ID)
+                        <form method="post" asp-action="AddToLibrary" asp-route-id="@game.ID">
                             <input type="submit" value="Добавить в библиотеку"  class="button" />
                         </form>
                     }

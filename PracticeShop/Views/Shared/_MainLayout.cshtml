@@ -27,11 +27,23 @@
                     }
                     @if (User.IsInRole("admin"))
                     {
-                        <a class="nav-link text-white" asp-area="" asp-controller="Store" asp-action="AddGame">Добавить игру</a>
                         <a class="nav-link text-white" asp-area="" asp-controller="Roles" asp-action="Index">Менеджмент ролей</a>
                     }
                 </div>
             </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">ИГРЫ</button>
+                <div class="dropdown-content menu">
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a class="nav-link text-white" asp-area="" asp-controller="Store" asp-action="AddGame">Добавить игру</a>
+                        <a class="nav-link text-white" asp-area="" asp-controller="Store" asp-action="EditGameView">Редактировать игру</a>
+                        <a class="nav-link text-white" asp-area="" asp-controller="Store" asp-action="DeleteGame">Удалить игру</a>
+                    }
+                </div>
+            </div>
+
             @if (User.Identity.IsAuthenticated)
             {
                 <div>

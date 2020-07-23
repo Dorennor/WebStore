@@ -251,3 +251,8 @@ C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_MainLayout.cshtml.g.cs
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\UserProfile.cshtml.g.cs
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Users\Profile.cshtml.g.cs
+C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\DeleteGame.cshtml.g.cs
+C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\DeleteResult.cshtml.g.cs
+C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\EditResult.cshtml.g.cs
+C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\EditGameView.cshtml.g.cs
+C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\EditGame.cshtml.g.cs
