@@ -93,10 +93,5 @@ namespace PracticeShop.Controllers
             }
             return RedirectToAction("Index");
         }
-
-        public IActionResult Profile()
-        {
-            return View();
-        }
     }
 }

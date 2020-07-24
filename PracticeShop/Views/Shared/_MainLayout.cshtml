@@ -20,11 +20,6 @@
                 <div class="dropdown-content menu">
                     <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
                     <a class="nav-link text-white" asp-area="" asp-controller="Store" asp-action="GamesList">Магазин</a>
-                    @*@if (User.Identity.IsAuthenticated)
-                {
-                    <a class="nav-link text-white" asp-area="" asp-controller="Store" asp-action="ShowLibrary">Библиотека</a>
-                }*@
-
                 </div>
             </div>
 
@@ -49,10 +44,10 @@
             @if (User.Identity.IsAuthenticated)
             {
 
-
                 <div class="dropdown float-right">
                     <button class="dropbtn text-capitalize">@User.Identity.Name</button>
                     <div class="dropdown-content menu">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Profile">Профиль</a>
                         <a class="nav-link text-white" asp-area="" asp-controller="Store" asp-action="ShowLibrary">Библиотека</a>
                         <form class="text-lg-right" method="post" asp-controller="Account" asp-action="Logout">
                             <input type="submit" value="Выход" />

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PracticeShop.Models;
 using PracticeShop.ViewModels;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PracticeShop.Controllers
@@ -10,11 +11,13 @@ namespace PracticeShop.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private ApplicationContext _db;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _db = context;
         }
 
         [HttpGet]
@@ -80,5 +83,7 @@ namespace PracticeShop.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult Profile() => View(_db.Users.Where(g => g.UserName == User.Identity.Name).First());
     }
 }

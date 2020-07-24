@@ -34,7 +34,7 @@ namespace PracticeShop.Controllers
         {
             _db.Games.Add(model);
             await _db.SaveChangesAsync();
-            return RedirectToAction("GamesList");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
