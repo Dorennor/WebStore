@@ -64,13 +64,44 @@ namespace PracticeShop.Controllers
 
         private void Write(int id)
         {
-            var games = JsonSerializer.Deserialize<List<Game>>(_libraryList.Last().GamesID);
-            games.Add(_db.Games.Find(id));
-            _libraryList.FirstOrDefault().GamesID = JsonSerializer.Serialize(games);
-            _db.SaveChanges();
+            List<Game> games;
+            if (_libraryList.First().GamesID == "")
+            {
+                games = new List<Game>();
+                games.Add(_db.Games.Find(id));
+                _libraryList.First().GamesID = JsonSerializer.Serialize(games);
+                _db.SaveChanges();
+            }
+            else
+            {
+                games = JsonSerializer.Deserialize<List<Game>>(_libraryList.First().GamesID);
+                games.Add(_db.Games.Find(id));
+                _libraryList.First().GamesID = JsonSerializer.Serialize(games);
+                _db.SaveChanges();
+            }
         }
 
-        private bool CheckGame(int id) => _userGameList.Where(g => g.ID == id).ToList().Count > 0;
+        private void Delete(int id)
+        {
+            var games = JsonSerializer.Deserialize<List<Game>>(_libraryList.First().GamesID);
+            if (games.Count > 1)
+            {
+                games.Remove(_db.Games.Find(id));
+                _libraryList.First().GamesID = JsonSerializer.Serialize(games);
+                _db.SaveChanges();
+            }
+            else
+            {
+                _libraryList.First().GamesID = "";
+                _db.SaveChanges();
+            }
+        }
+
+        private bool CheckGame(int id)
+        {
+            if (_userGameList == null) return false;
+            return _userGameList.Where(g => g.ID == id).ToList().Count > 0;
+        }
 
         private bool IsUserHasLibrary => _libraryList.Count >= 1;
 
@@ -99,13 +130,7 @@ namespace PracticeShop.Controllers
             _db.SaveChanges();
         }
 
-        [HttpGet]
-        public IActionResult Check()
-        {
-            return View("Account/Login");
-        }
-
-        public IActionResult DeleteGame() => View(_db.Games);
+        public IActionResult DeleteGame() => View(_db.Games.OrderBy(g => g.Name));
 
         [HttpDelete]
         public IActionResult DeleteGame(int id)
@@ -124,7 +149,7 @@ namespace PracticeShop.Controllers
             }
         }
 
-        public IActionResult EditGameView() => View(_db.Games);
+        public IActionResult EditGameView() => View(_db.Games.OrderBy(g => g.Name));
 
         [HttpGet]
         public IActionResult EditGame(int id)
@@ -156,6 +181,14 @@ namespace PracticeShop.Controllers
             }
             ViewBag.Message = "Данные игры были упешно отредактированы!";
             return View("EditResult");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteGameFromLibrary(int id)
+        {
+            Delete(id);
+            ViewBag.Message = "Игра была успешно удалена из Вашей блиблиотеки!";
+            return View("DeleteGameFromLibraryResult");
         }
     }
 }

@@ -14,6 +14,9 @@
             <td>
                 <p>Издатель</p>
             </td>
+            <td>
+
+            </td>
         </tr>
         @foreach (Game game in Model)
         {
@@ -26,6 +29,13 @@
                 </td>
                 <td>
                     <p>@game.Publisher</p>
+                </td>
+                <td>
+                    <form method="post" asp-route-id="@game.ID" asp-action="DeleteGameFromLibrary">
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Удалить из библиотеки
+                        </button>
+                    </form>
                 </td>
             </tr>
         }

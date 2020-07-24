@@ -1,28 +1,28 @@
 ﻿@model IEnumerable<PracticeShop.Models.Game>;
 
-    <div>
-        <table class="table">
+<div>
+    <table class="table">
+        <tr>
+            <td>
+                <p>Название игры</p>
+            </td>
+            <td>
+            </td>
+        </tr>
+        @foreach (var game in Model)
+        {
             <tr>
                 <td>
-                    <p>Название игры</p>
+                    <p>@game.Name</p>
                 </td>
                 <td>
+                    <form method="get" asp-route-id="@game.ID" asp-action="EditGame">
+                        <button type="submit" class="btn btn-primary">
+                            Редактировать
+                        </button>
+                    </form>
                 </td>
             </tr>
-            @foreach (var game in Model)
-            {
-                <tr>
-                    <td>
-                        <p>@game.Name</p>
-                    </td>
-                    <td>
-                        <form method="get" asp-route-id="@game.ID" asp-action="EditGame">
-                            <button type="submit" class="btn btn-primary">
-                                Редактировать
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </table>
-    </div>
+        }
+    </table>
+</div>
