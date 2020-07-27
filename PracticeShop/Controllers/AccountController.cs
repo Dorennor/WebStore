@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PracticeShop.Models;
 using PracticeShop.ViewModels;
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,12 +15,16 @@ namespace PracticeShop.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private ApplicationContext _db;
+        private readonly ImagesDBContext _img;
+        private readonly IWebHostEnvironment _appEnvironment;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationContext context)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationContext context, ImagesDBContext images, IWebHostEnvironment appEnvironment)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _db = context;
+            _img = images;
+            _appEnvironment = appEnvironment;
         }
 
         [HttpGet]
@@ -108,6 +114,20 @@ namespace PracticeShop.Controllers
                 {
                     user.Email = model.Email;
                     user.UserName = model.UserName;
+
+                    if (model.UploadedFile != null)
+                    {
+                        string name = User.Identity.Name + "_" + DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + DateTime.Now.Second + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year + ".jpeg";
+                        string path = "/image/user_icons/" + name;
+                        using (var filestream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                        {
+                            await model.UploadedFile.CopyToAsync(filestream);
+                        }
+
+                        Image image = new Image { Name = name, Path = path , UserId = user.Id};
+                        _img.UserIcons.Add(image);
+                        _img.SaveChanges();
+                    }
 
                     var result = await _userManager.UpdateAsync(user);
                     if (result.Succeeded)

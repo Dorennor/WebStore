@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Internal;
 using PracticeShop.Models;
 using PracticeShop.ViewModels;
 using System.Linq;
@@ -44,7 +43,6 @@ namespace PracticeShop.Controllers
             }
             return View(model);
         }
-
 
         [HttpPost]
         public async Task<ActionResult> Delete(string id)

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace PracticeShop.ViewModels
 {
@@ -11,5 +12,7 @@ namespace PracticeShop.ViewModels
 
         [Display(Name = "Имя пользователя")]
         public string UserName { get; set; }
+
+        public IFormFile UploadedFile { get; set; }
     }
 }
