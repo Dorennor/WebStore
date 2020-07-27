@@ -13,12 +13,14 @@
             </tr>
             <tr>
                 <td>
-                    <form method="get" asp-controller="User" asp-action="EditProfile">
+                    <form method="get" asp-controller="Account" asp-action="EditAccount">
                         <input type="submit" value="Редактировать профиль"/>
                     </form>
                 </td>
                 <td>
-
+                    <form method="get" asp-controller="Account" asp-action="ChangePassword">
+                        <input type="submit" value="Сменить пароль" />
+                    </form>
                 </td>
             </tr>
         </table>

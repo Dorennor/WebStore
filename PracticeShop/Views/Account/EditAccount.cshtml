@@ -1,0 +1,19 @@
+﻿@model PracticeShop.ViewModels.EditUserViewModel;
+
+    <form method="post" asp-controller="Account" asp-action="EditAccount">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <input type="hidden" asp-for="Id" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="control-label">Email</label>
+            <input type="text" asp-for="Email" class="form-control" value="@Model.Email"/>
+        </div>
+        <div>
+            <label asp-for="UserName" class="control-label">Имя пользователя</label>
+            <input type="text" asp-for="UserName" class="form-control" value="@Model.UserName" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Сохранить изменения" class="btn btn-danger" />
+        </div>
+    </form>

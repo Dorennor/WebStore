@@ -32,9 +32,13 @@ namespace PracticeShop.Controllers
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> AddGame(Game model)
         {
-            _db.Games.Add(model);
-            await _db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            if (!CheckStore(model))
+            {
+                _db.Games.Add(model);
+                await _db.SaveChangesAsync();
+                return RedirectToAction("/Home/Index");
+            }
+            else return Content("ERROR");
         }
 
         [HttpPost]
@@ -120,6 +124,13 @@ namespace PracticeShop.Controllers
             }
         }
 
+        private bool CheckStore(Game model)
+        {
+            var result = _db.Games.Where(g => g.Name == model.Name).ToList();
+            if (result.Count > 0) return true;
+            else return false;
+        }
+
         private List<Library> _libraryList => _db.Libraries.Where(l => l.UserName == User.Identity.Name).ToList();
 
         private void CreateLibraryWithGame(int id)
@@ -135,18 +146,9 @@ namespace PracticeShop.Controllers
         [HttpDelete]
         public IActionResult DeleteGame(int id)
         {
-            try
-            {
-                _db.Games.Remove(_db.Games.Where(g => g.ID == id).First());
-                _db.SaveChanges();
-                ViewBag.Message = "Игра была удалена из магазина!";
-                return View("DeleteResult");
-            }
-            catch
-            {
-                ViewBag.Message = "Возникла непредвиденная ошибка!";
-                return View("DeleteResult");
-            }
+            _db.Games.Remove(_db.Games.Where(g => g.ID == id).First());
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult EditGameView() => View(_db.Games.OrderBy(g => g.Name));
@@ -179,16 +181,14 @@ namespace PracticeShop.Controllers
                     _db.SaveChanges();
                 }
             }
-            ViewBag.Message = "Данные игры были упешно отредактированы!";
-            return View("EditResult");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
         public IActionResult DeleteGameFromLibrary(int id)
         {
             Delete(id);
-            ViewBag.Message = "Игра была успешно удалена из Вашей блиблиотеки!";
-            return View("DeleteGameFromLibraryResult");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

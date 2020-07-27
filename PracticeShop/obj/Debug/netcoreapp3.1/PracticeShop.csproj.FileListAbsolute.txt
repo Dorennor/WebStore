@@ -249,12 +249,9 @@ C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\PracticeShop.pdb
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\PracticeShop.genruntimeconfig.cache
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_MainLayout.cshtml.g.cs
-C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\UserProfile.cshtml.g.cs
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\DeleteGame.cshtml.g.cs
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\EditGameView.cshtml.g.cs
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\EditGame.cshtml.g.cs
-C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\DeleteResult.cshtml.g.cs
-C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\EditResult.cshtml.g.cs
-C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\DeleteGameFromLibraryResult.cshtml.g.cs
-C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Account\EditUser.cshtml.g.cs
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Account\Profile.cshtml.g.cs
+C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Account\EditAccount.cshtml.g.cs
+C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Account\ChangePassword.cshtml.g.cs
