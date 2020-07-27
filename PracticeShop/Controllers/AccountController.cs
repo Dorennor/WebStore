@@ -118,13 +118,13 @@ namespace PracticeShop.Controllers
                     if (model.UploadedFile != null)
                     {
                         string name = User.Identity.Name + "_" + DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + DateTime.Now.Second + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year + ".jpeg";
-                        string path = "/image/user_icons/" + name;
+                        string path = "\\image\\user_icons\\" + name;
                         using (var filestream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
                         {
                             await model.UploadedFile.CopyToAsync(filestream);
                         }
 
-                        Image image = new Image { Name = name, Path = path , UserId = user.Id};
+                        Image image = new Image { Name = name, Path = _appEnvironment.WebRootPath + path, UserId = user.Id};
                         _img.UserIcons.Add(image);
                         _img.SaveChanges();
                     }
