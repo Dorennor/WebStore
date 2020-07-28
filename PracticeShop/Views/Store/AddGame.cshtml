@@ -1,27 +1,27 @@
 ﻿@model PracticeShop.Models.Game
 
-    <form method="post" asp-controller="Store" asp-action="AddGame">
-        <div>
-            <label asp-for="Name">Название игры</label><br />
-            <input type="text" asp-for="Name" />
-        </div>
+<form method="post" asp-controller="Store" asp-action="AddGame">
+    <div>
+        <label asp-for="Name">Название игры</label><br />
+        <input type="text" asp-for="Name" />
+    </div>
 
-        <div>
-            <label asp-for="Genre">Жанр</label><br />
-            <input type="text" asp-for="Genre" />
-        </div>
+    <div>
+        <label asp-for="Genre">Жанр</label><br />
+        <input type="text" asp-for="Genre" />
+    </div>
 
-        <div>
-            <label asp-for="Publisher">Издатель</label><br />
-            <input type="text" asp-for="Publisher" />
-        </div>
+    <div>
+        <label asp-for="Publisher">Издатель</label><br />
+        <input type="text" asp-for="Publisher" />
+    </div>
 
-        <div>
-            <label asp-for="Price">Цена</label><br />
-            <input type="number" asp-for="Price" />
-        </div>
+    <div>
+        <label asp-for="Price">Цена</label><br />
+        <input type="number" asp-for="Price" />
+    </div>
 
-        <div>
-            <input type="submit" value="Отправить" />
-        </div>
-    </form>
+    <div>
+        <input type="submit" value="Отправить" />
+    </div>
+</form>

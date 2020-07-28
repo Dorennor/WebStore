@@ -1,29 +1,26 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using PracticeShop.Models;
 using PracticeShop.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
 
 namespace PracticeShop.Controllers
 {
     public class StoreController : Controller
     {
         private readonly StoreContextDB _db;
-        private readonly ImagesDBContext _img;
         private readonly IWebHostEnvironment _appEnvironment;
+        private readonly ApplicationContext _userDb;
 
-        public StoreController(StoreContextDB context, ImagesDBContext images, IWebHostEnvironment appEnvironment)
+        public StoreController(StoreContextDB context, IWebHostEnvironment appEnvironment, ApplicationContext userContext)
         {
             _db = context;
-            _img = images;
             _appEnvironment = appEnvironment;
+            _userDb = userContext;
         }
 
         [HttpGet]
@@ -196,29 +193,6 @@ namespace PracticeShop.Controllers
         public IActionResult DeleteGameFromLibrary(int id)
         {
             Delete(id);
-            return RedirectToAction("Index", "Home");
-        }
-
-        public IActionResult UploadImage()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> UploadImage(IFormFile uploadedFile)
-        {
-            if(uploadedFile != null)
-            {
-                string path = "/image/user_icons/" + User.Identity.Name + "_" + DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + DateTime.Now.Second + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year + ".jpeg";
-
-                using (var filestream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
-                {
-                    await uploadedFile.CopyToAsync(filestream);
-                }
-                Image image = new Image { Name = (User.Identity.Name + DateTime.Now), Path = path };
-                _img.UserIcons.Add(image);
-                _img.SaveChanges();
-            }
             return RedirectToAction("Index", "Home");
         }
     }

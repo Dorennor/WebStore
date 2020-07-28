@@ -2,12 +2,14 @@
     color: white;
 }
 
+.avatar-image {
+    width: 150px;
+    height: 150px;
+}
+
 .profile-data {
     display: flex;
 }
-
-    .profile-data div {
-    }
 
 input {
     color: black;

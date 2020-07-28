@@ -256,3 +256,4 @@ C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Account\EditAccount.cshtml.g.cs
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Account\ChangePassword.cshtml.g.cs
 C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\UploadImage.cshtml.g.cs
+C:\Users\User\Source\Repos\Dorennor\Practice\PracticeShop\obj\Debug\netcoreapp3.1\Razor\Views\Store\Game.cshtml.g.cs

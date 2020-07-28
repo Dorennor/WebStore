@@ -22,10 +22,9 @@ namespace PracticeShop
                 options.UseSqlServer(Configuration.GetConnectionString("StoreConnection")));
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<ImagesDBContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("ImagesConnections")));
 
-            services.AddIdentity<User, IdentityRole>(options => {
+            services.AddIdentity<User, IdentityRole>(options =>
+            {
                 options.Password.RequiredLength = 6;
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;

@@ -14,21 +14,22 @@ namespace PracticeShop.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private ApplicationContext _db;
-        private readonly ImagesDBContext _img;
+        private readonly ApplicationContext _db;
         private readonly IWebHostEnvironment _appEnvironment;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationContext context, ImagesDBContext images, IWebHostEnvironment appEnvironment)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationContext context, IWebHostEnvironment appEnvironment)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _db = context;
-            _img = images;
             _appEnvironment = appEnvironment;
         }
 
         [HttpGet]
-        public IActionResult Register() => View();
+        public IActionResult Register()
+        {
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
@@ -54,7 +55,10 @@ namespace PracticeShop.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login(string returnUrl = null) => View(new LoginViewModel { ReturnUrl = returnUrl });
+        public IActionResult Login(string returnUrl = null)
+        {
+            return View(new LoginViewModel { ReturnUrl = returnUrl });
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -90,7 +94,27 @@ namespace PracticeShop.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult Profile() => View(_db.Users.Where(g => g.UserName == User.Identity.Name).First());
+        public IActionResult Profile()
+        {
+            User user = _db.Users.Where(u => u.UserName == User.Identity.Name).First();
+            if (_db.UserIcons.Any())
+            {
+                string path = _db.UserIcons.Where(i => i.UserId == _db.Users.Where(u => u.UserName == User.Identity.Name).First().Id).First().Path;
+
+                using (var filestream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Open))
+                {
+                    
+                }
+
+                //UserProfileViewModel model = new UserProfileViewModel
+                //{
+                //    User = user,
+                //    Image = null
+                //};
+                //return View(model);
+            }
+            else return View(new UserProfileViewModel());
+        }
 
         [HttpGet]
         public async Task<IActionResult> EditAccount()
@@ -124,9 +148,9 @@ namespace PracticeShop.Controllers
                             await model.UploadedFile.CopyToAsync(filestream);
                         }
 
-                        Image image = new Image { Name = name, Path = _appEnvironment.WebRootPath + path, UserId = user.Id};
-                        _img.UserIcons.Add(image);
-                        _img.SaveChanges();
+                        Image image = new Image { Name = name, Path = _appEnvironment.WebRootPath + path, UserId = user.Id };
+                        _db.UserIcons.Add(image);
+                        _db.SaveChanges();
                     }
 
                     var result = await _userManager.UpdateAsync(user);
@@ -187,5 +211,28 @@ namespace PracticeShop.Controllers
             }
             return View(model);
         }
+
+        //private async void AddAdminAccount()
+        //{
+        //    if (!_db.Users.Any())
+        //    {
+        //        RegisterViewModel model = new RegisterViewModel
+        //        {
+        //            UserName = "admin",
+        //            Email = "vova.rud.00@gmail.com",
+        //            Password = "123456",
+        //            PasswordConfirm = "123456"
+        //        };
+        //        if (ModelState.IsValid)
+        //        {
+        //            User user = new User { Email = model.Email, UserName = model.UserName };
+        //            var result = await _userManager.CreateAsync(user, model.Password);
+        //            if (result.Succeeded)
+        //            {
+        //                await _signInManager.SignInAsync(user, false);
+        //            }
+        //        }
+        //    }
+        //}
     }
 }
