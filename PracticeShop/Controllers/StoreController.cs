@@ -13,13 +13,13 @@ namespace PracticeShop.Controllers
     public class StoreController : Controller
     {
         private readonly StoreContextDB _db;
-        private readonly IWebHostEnvironment _appEnvironment;
+        //private readonly IWebHostEnvironment _appEnvironment;
         private readonly ApplicationContext _userDb;
 
-        public StoreController(StoreContextDB context, IWebHostEnvironment appEnvironment, ApplicationContext userContext)
+        public StoreController(StoreContextDB context, /*IWebHostEnvironment appEnvironment,*/ ApplicationContext userContext)
         {
             _db = context;
-            _appEnvironment = appEnvironment;
+            //_appEnvironment = appEnvironment;
             _userDb = userContext;
         }
 
@@ -41,7 +41,7 @@ namespace PracticeShop.Controllers
             {
                 _db.Games.Add(model);
                 await _db.SaveChangesAsync();
-                return RedirectToAction("/Home/Index");
+                return RedirectToAction("Index", "Home");
             }
             else return Content("ERROR");
         }
@@ -136,19 +136,19 @@ namespace PracticeShop.Controllers
             else return false;
         }
 
-        private List<Library> _libraryList => _db.Libraries.Where(l => l.UserName == User.Identity.Name).ToList();
+        private List<Library> _libraryList => _db.Libraries.Where(l => l.UserID == CurrentUser.Id).ToList();
 
         private void CreateLibraryWithGame(int id)
         {
             var games = new List<Game> { _db.Games.Find(id) };
 
-            _db.Libraries.Add(new Library(User.Identity.Name, JsonSerializer.Serialize(games)));
+            _db.Libraries.Add(new Library(CurrentUser.Id, JsonSerializer.Serialize(games)));
             _db.SaveChanges();
         }
 
         public IActionResult DeleteGame() => View(_db.Games.OrderBy(g => g.Name));
 
-        [HttpDelete]
+        [HttpPost]
         public IActionResult DeleteGame(int id)
         {
             _db.Games.Remove(_db.Games.Where(g => g.ID == id).First());
@@ -194,6 +194,14 @@ namespace PracticeShop.Controllers
         {
             Delete(id);
             return RedirectToAction("Index", "Home");
+        }
+
+        public User CurrentUser
+        {
+            get
+            {
+                return _userDb.Users.Where(u => u.UserName == User.Identity.Name).First();
+            }
         }
     }
 }

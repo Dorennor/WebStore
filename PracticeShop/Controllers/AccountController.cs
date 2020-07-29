@@ -15,14 +15,14 @@ namespace PracticeShop.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly ApplicationContext _db;
-        private readonly IWebHostEnvironment _appEnvironment;
+        //private readonly IWebHostEnvironment _appEnvironment;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationContext context, IWebHostEnvironment appEnvironment)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationContext context/*, IWebHostEnvironment appEnvironment*/)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _db = context;
-            _appEnvironment = appEnvironment;
+            //_appEnvironment = appEnvironment;
         }
 
         [HttpGet]
@@ -96,24 +96,24 @@ namespace PracticeShop.Controllers
 
         public IActionResult Profile()
         {
-            User user = _db.Users.Where(u => u.UserName == User.Identity.Name).First();
-            if (_db.UserIcons.Any())
-            {
-                string path = _db.UserIcons.Where(i => i.UserId == _db.Users.Where(u => u.UserName == User.Identity.Name).First().Id).First().Path;
+            //User user = _db.Users.Where(u => u.UserName == User.Identity.Name).First();
+            //if (_db.UserIcons.Any())
+            //{
+            //    string path = _db.UserIcons.Where(i => i.UserId == _db.Users.Where(u => u.UserName == User.Identity.Name).First().Id).First().Path;
 
-                using (var filestream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Open))
-                {
-                    
-                }
+            //    using (var filestream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Open))
+            //    {
 
-                //UserProfileViewModel model = new UserProfileViewModel
-                //{
-                //    User = user,
-                //    Image = null
-                //};
-                //return View(model);
-            }
-            else return View(new UserProfileViewModel());
+            //    }
+
+            //    //UserProfileViewModel model = new UserProfileViewModel
+            //    //{
+            //    //    User = user,
+            //    //    Image = null
+            //    //};
+            //    //return View(model);
+            //}
+            /*else */return View(/*new UserProfileViewModel()*/_db.Users.Where(u => u.UserName == User.Identity.Name).First());
         }
 
         [HttpGet]
@@ -139,19 +139,19 @@ namespace PracticeShop.Controllers
                     user.Email = model.Email;
                     user.UserName = model.UserName;
 
-                    if (model.UploadedFile != null)
-                    {
-                        string name = User.Identity.Name + "_" + DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + DateTime.Now.Second + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year + ".jpeg";
-                        string path = "\\image\\user_icons\\" + name;
-                        using (var filestream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
-                        {
-                            await model.UploadedFile.CopyToAsync(filestream);
-                        }
+                    //if (model.UploadedFile != null)
+                    //{
+                    //    string name = User.Identity.Name + "_" + DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + DateTime.Now.Second + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year + ".jpeg";
+                    //    string path = "\\image\\user_icons\\" + name;
+                    //    using (var filestream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                    //    {
+                    //        await model.UploadedFile.CopyToAsync(filestream);
+                    //    }
 
-                        Image image = new Image { Name = name, Path = _appEnvironment.WebRootPath + path, UserId = user.Id };
-                        _db.UserIcons.Add(image);
-                        _db.SaveChanges();
-                    }
+                    //    Image image = new Image { Name = name, Path = _appEnvironment.WebRootPath + path, UserId = user.Id };
+                    //    _db.UserIcons.Add(image);
+                    //    _db.SaveChanges();
+                    //}
 
                     var result = await _userManager.UpdateAsync(user);
                     if (result.Succeeded)
