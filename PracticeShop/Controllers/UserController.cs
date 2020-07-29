@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace PracticeShop.Controllers
 {
-    public class UsersController : Controller
+    public class UserController : Controller
     {
         private UserManager<User> _userManager;
 
-        public UsersController(UserManager<User> userManager)
+        public UserController(UserManager<User> userManager)
         {
             _userManager = userManager;
         }
@@ -44,45 +44,6 @@ namespace PracticeShop.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Edit(string id)
-        {
-            User user = await _userManager.FindByIdAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-            EditUserViewModel model = new EditUserViewModel { Id = user.Id, Email = user.UserName };
-            return View(model);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Edit(EditUserViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                User user = await _userManager.FindByIdAsync(model.Id);
-                if (user != null)
-                {
-                    user.Email = model.Email;
-                    user.UserName = model.UserName;
-
-                    var result = await _userManager.UpdateAsync(user);
-                    if (result.Succeeded)
-                    {
-                        return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        foreach (var error in result.Errors)
-                        {
-                            ModelState.AddModelError(string.Empty, error.Description);
-                        }
-                    }
-                }
-            }
-            return View(model);
-        }
-
         [HttpPost]
         public async Task<ActionResult> Delete(string id)
         {
@@ -92,11 +53,6 @@ namespace PracticeShop.Controllers
                 IdentityResult result = await _userManager.DeleteAsync(user);
             }
             return RedirectToAction("Index");
-        }
-
-        public IActionResult Profile()
-        {
-            return View();
         }
     }
 }

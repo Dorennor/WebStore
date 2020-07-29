@@ -2,6 +2,15 @@
     color: white;
 }
 
+.avatar-image {
+    width: 150px;
+    height: 150px;
+}
+
+.profile-data {
+    display: flex;
+}
+
 input {
     color: black;
 }
@@ -13,7 +22,7 @@ input {
     text-align: center;
 }
 
-.div-li{
+.div-li {
     width: auto;
     border-color: #000000;
     border-style: solid;

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using PracticeShop.Models;
 using PracticeShop.ViewModels;
@@ -12,10 +13,14 @@ namespace PracticeShop.Controllers
     public class StoreController : Controller
     {
         private readonly StoreContextDB _db;
+        //private readonly IWebHostEnvironment _appEnvironment;
+        private readonly ApplicationContext _userDb;
 
-        public StoreController(StoreContextDB context)
+        public StoreController(StoreContextDB context, /*IWebHostEnvironment appEnvironment,*/ ApplicationContext userContext)
         {
             _db = context;
+            //_appEnvironment = appEnvironment;
+            _userDb = userContext;
         }
 
         [HttpGet]
@@ -32,9 +37,13 @@ namespace PracticeShop.Controllers
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> AddGame(Game model)
         {
-            _db.Games.Add(model);
-            await _db.SaveChangesAsync();
-            return RedirectToAction("GamesList");
+            if (!CheckStore(model))
+            {
+                _db.Games.Add(model);
+                await _db.SaveChangesAsync();
+                return RedirectToAction("Index", "Home");
+            }
+            else return Content("ERROR");
         }
 
         [HttpPost]
@@ -64,13 +73,44 @@ namespace PracticeShop.Controllers
 
         private void Write(int id)
         {
-            var games = JsonSerializer.Deserialize<List<Game>>(_libraryList.Last().GamesID);
-            games.Add(_db.Games.Find(id));
-            _libraryList.FirstOrDefault().GamesID = JsonSerializer.Serialize(games);
-            _db.SaveChanges();
+            List<Game> games;
+            if (_libraryList.First().GamesID == "")
+            {
+                games = new List<Game>();
+                games.Add(_db.Games.Find(id));
+                _libraryList.First().GamesID = JsonSerializer.Serialize(games);
+                _db.SaveChanges();
+            }
+            else
+            {
+                games = JsonSerializer.Deserialize<List<Game>>(_libraryList.First().GamesID);
+                games.Add(_db.Games.Find(id));
+                _libraryList.First().GamesID = JsonSerializer.Serialize(games);
+                _db.SaveChanges();
+            }
         }
 
-        private bool CheckGame(int id) => _userGameList.Where(g => g.ID == id).ToList().Count > 0;
+        private void Delete(int id)
+        {
+            var games = JsonSerializer.Deserialize<List<Game>>(_libraryList.First().GamesID);
+            if (games.Count > 1)
+            {
+                games.Remove(_db.Games.Find(id));
+                _libraryList.First().GamesID = JsonSerializer.Serialize(games);
+                _db.SaveChanges();
+            }
+            else
+            {
+                _libraryList.First().GamesID = "";
+                _db.SaveChanges();
+            }
+        }
+
+        private bool CheckGame(int id)
+        {
+            if (_userGameList == null) return false;
+            return _userGameList.Where(g => g.ID == id).ToList().Count > 0;
+        }
 
         private bool IsUserHasLibrary => _libraryList.Count >= 1;
 
@@ -89,83 +129,79 @@ namespace PracticeShop.Controllers
             }
         }
 
-        private List<Library> _libraryList => _db.Libraries.Where(l => l.UserName == User.Identity.Name).ToList();
+        private bool CheckStore(Game model)
+        {
+            var result = _db.Games.Where(g => g.Name == model.Name).ToList();
+            if (result.Count > 0) return true;
+            else return false;
+        }
+
+        private List<Library> _libraryList => _db.Libraries.Where(l => l.UserID == CurrentUser.Id).ToList();
 
         private void CreateLibraryWithGame(int id)
         {
             var games = new List<Game> { _db.Games.Find(id) };
 
-            _db.Libraries.Add(new Library(User.Identity.Name, JsonSerializer.Serialize(games)));
+            _db.Libraries.Add(new Library(CurrentUser.Id, JsonSerializer.Serialize(games)));
             _db.SaveChanges();
         }
 
-        //[HttpGet]
-        //public IActionResult Check()
-        //{
-        //    return View("Account/Login");
-        //}
-
-        public IActionResult DeleteGame() => View(_db.Games);
-
-        [HttpDelete]
-        public IActionResult DeleteGame(int id)
-        {
-            try
-            {
-                _db.Games.Remove(_db.Games.Where(g => g.ID == id).First());
-                _db.SaveChanges();
-                ViewBag.Message = "Игра была удалена из магазина!";
-                return View("DeleteResult");
-            }
-            catch
-            {
-                ViewBag.Message = "Возникла непредвиденная ошибка!";
-                return View("DeleteResult");
-            }
-        }
-
-        public IActionResult EditGameView() => View(_db.Games);
-
-        //[HttpGet]
-        //public IActionResult EditGame(int id)
-        //{
-        //    Game game = _db.Games.Find(id);
-        //    if (game == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    EditGameViewModel model = new EditGameViewModel { Name = game.Name, Genre = game.Genre, Publisher = game.Publisher, Price = game.Price };
-        //    return View(model);
-        //}
+        public IActionResult DeleteGame() => View(_db.Games.OrderBy(g => g.Name));
 
         [HttpPost]
-        public async Task<IActionResult> EditGameAsync(EditGameViewModel model)
+        public IActionResult DeleteGame(int id)
         {
+            _db.Games.Remove(_db.Games.Where(g => g.ID == id).First());
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult EditGameView() => View(_db.Games.OrderBy(g => g.Name));
+
+        [HttpGet]
+        public IActionResult EditGame(int id)
+        {
+            Game game = _db.Games.Find(id);
+            if (game == null)
+            {
+                return NotFound();
+            }
+
+            EditGameViewModel model = new EditGameViewModel { Name = game.Name, Genre = game.Genre, Publisher = game.Publisher, Price = game.Price };
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult EditGame(EditGameViewModel model)
+        {
+            Game game = _db.Games.Find(model.Id);
             if (ModelState.IsValid)
             {
-                Game game = await _db.Games.FindAsync(model.Id);
                 if (game != null)
                 {
                     game.Name = model.Name;
                     game.Genre = model.Genre;
                     game.Publisher = model.Publisher;
                     game.Price = model.Price;
-
-                    try
-                    {
-                        _db.Games.Update(game);
-                        await _db.SaveChangesAsync();
-                    }
-                    catch
-                    {
-                        ViewBag.Message = "Возникла непредвиденная ошибка!";
-                        return View("EditResult");
-                    }
+                    _db.SaveChanges();
                 }
             }
-            ViewBag.Message = "Данные игры были упешно отредактированы!";
-            return View("EditResult");
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteGameFromLibrary(int id)
+        {
+            Delete(id);
+            return RedirectToAction("Index", "Home");
+        }
+
+        public User CurrentUser
+        {
+            get
+            {
+                return _userDb.Users.Where(u => u.UserName == User.Identity.Name).First();
+            }
         }
     }
 }

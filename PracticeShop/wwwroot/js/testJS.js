@@ -1,4 +1,3 @@
-function alertbtn(){
-	alert("asdas");
+function alertbtn() {
+    alert("asdas");
 }
-

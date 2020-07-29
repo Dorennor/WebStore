@@ -27,7 +27,7 @@ using PracticeShop.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8c9955ef6ed5b3678c506197d02cbe1c6f3879c4", @"/Views/Store/AddToLibrary.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b6fb762cf63f31f30a026f91d42d3ad41c7b7b7f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"84b4e8dd663a897a17217eca6c2524c306b18a82", @"/Views/_ViewImports.cshtml")]
     public class Views_Store_AddToLibrary : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<String>
     {
         #pragma warning disable 1998

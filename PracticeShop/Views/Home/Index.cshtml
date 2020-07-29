@@ -21,27 +21,25 @@
         </tr>
         @foreach (var game in Model)
         {
-            <tr>
-                <td>
-                    <p>@game.Name</p>
-                </td>
-                <td>
-                    <p>@game.Genre</p>
-                </td>
-                <td>
-                    <p>@game.Publisher</p>
-                </td>
-                <td>
-                    @if (game.Price == 0)
-                    {
-                        <p>Бесплатно</p>
-                    }
-                    else
-                    {
-                        <p>@game.Price</p>
-                    }
-                </td>
-            </tr>
-        }
+<tr>
+    <td>
+        <p>@game.Name</p>
+    </td>
+    <td>
+        <p>@game.Genre</p>
+    </td>
+    <td>
+        <p>@game.Publisher</p>
+    </td>
+    <td>
+        @if (game.Price == 0)
+        {
+<p>Бесплатно</p> }
+                else
+                {
+                    <p>@game.Price</p>
+                }
+    </td>
+</tr>}
     </table>
 </div>

@@ -1,0 +1,29 @@
+﻿@model PracticeShop.Models.Game
+
+<div>
+    <div class="flex-md-column">
+        <img src="~/image/user_icons/admin_18_10_59_27_7_2020.jpeg" class="avatar" />
+    </div>
+    <table class="table">
+        <tr>
+            <td>Имя пользователя: </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <form method="get" asp-controller="Account" asp-action="EditAccount">
+                    <input type="submit" value="Редактировать профиль" />
+                </form>
+            </td>
+            <td>
+                <form method="get" asp-controller="Account" asp-action="ChangePassword">
+                    <input type="submit" value="Сменить пароль" />
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>

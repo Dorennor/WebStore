@@ -7,12 +7,12 @@ namespace PracticeShop.Models
         [Key]
         public int ID { get; set; }
 
-        public string UserName { get; set; }
+        public string UserID { get; set; }
         public string GamesID { get; set; }
 
-        public Library(string userName)
+        public Library(string userID)
         {
-            UserName = userName;
+            UserID = userID;
         }
 
         public Library(string userName, string gamesID) : this(userName)
