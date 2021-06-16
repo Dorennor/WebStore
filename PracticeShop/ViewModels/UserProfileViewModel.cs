@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PracticeShop.ViewModels
+namespace WebStore.ViewModels
 {
     public class UserProfileViewModel
     {

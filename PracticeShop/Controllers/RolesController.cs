@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using PracticeShop.Models;
-using PracticeShop.ViewModels;
+using WebStore.Models;
+using WebStore.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PracticeShop.Controllers
+namespace WebStore.Controllers
 {
     //[Authorize(Roles = "admin")]
     public class RolesController : Controller

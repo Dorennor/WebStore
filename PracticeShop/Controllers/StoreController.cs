@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using PracticeShop.Models;
-using PracticeShop.ViewModels;
+using WebStore.Models;
+using WebStore.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
+using WebStore.Models;
 
-namespace PracticeShop.Controllers
+namespace WebStore.Controllers
 {
     public class StoreController : Controller
     {
@@ -35,7 +36,7 @@ namespace PracticeShop.Controllers
 
         [HttpPost]
         [Authorize(Roles = "admin")]
-        public async Task<IActionResult> AddGame(Game model)
+        public async Task<IActionResult> AddGame(Device model)
         {
             if (!CheckStore(model))
             {
@@ -73,17 +74,17 @@ namespace PracticeShop.Controllers
 
         private void Write(int id)
         {
-            List<Game> games;
+            List<Device> games;
             if (_libraryList.First().GamesID == "")
             {
-                games = new List<Game>();
+                games = new List<Device>();
                 games.Add(_db.Games.Find(id));
                 _libraryList.First().GamesID = JsonSerializer.Serialize(games);
                 _db.SaveChanges();
             }
             else
             {
-                games = JsonSerializer.Deserialize<List<Game>>(_libraryList.First().GamesID);
+                games = JsonSerializer.Deserialize<List<Device>>(_libraryList.First().GamesID);
                 games.Add(_db.Games.Find(id));
                 _libraryList.First().GamesID = JsonSerializer.Serialize(games);
                 _db.SaveChanges();
@@ -92,7 +93,7 @@ namespace PracticeShop.Controllers
 
         private void Delete(int id)
         {
-            var games = JsonSerializer.Deserialize<List<Game>>(_libraryList.First().GamesID);
+            var games = JsonSerializer.Deserialize<List<Device>>(_libraryList.First().GamesID);
             if (games.Count > 1)
             {
                 games.Remove(_db.Games.Find(id));
@@ -114,13 +115,13 @@ namespace PracticeShop.Controllers
 
         private bool IsUserHasLibrary => _libraryList.Count >= 1;
 
-        private List<Game> _userGameList
+        private List<Device> _userGameList
         {
             get
             {
                 try
                 {
-                    return JsonSerializer.Deserialize<List<Game>>(_libraryList.Last().GamesID);
+                    return JsonSerializer.Deserialize<List<Device>>(_libraryList.Last().GamesID);
                 }
                 catch
                 {
@@ -129,20 +130,20 @@ namespace PracticeShop.Controllers
             }
         }
 
-        private bool CheckStore(Game model)
+        private bool CheckStore(Device model)
         {
             var result = _db.Games.Where(g => g.Name == model.Name).ToList();
             if (result.Count > 0) return true;
             else return false;
         }
 
-        private List<Library> _libraryList => _db.Libraries.Where(l => l.UserID == CurrentUser.Id).ToList();
+        private List<Orders> _libraryList => _db.Libraries.Where(l => l.UserID == CurrentUser.Id).ToList();
 
         private void CreateLibraryWithGame(int id)
         {
-            var games = new List<Game> { _db.Games.Find(id) };
+            var games = new List<Device> { _db.Games.Find(id) };
 
-            _db.Libraries.Add(new Library(CurrentUser.Id, JsonSerializer.Serialize(games)));
+            _db.Libraries.Add(new Orders(CurrentUser.Id, JsonSerializer.Serialize(games)));
             _db.SaveChanges();
         }
 
@@ -161,28 +162,28 @@ namespace PracticeShop.Controllers
         [HttpGet]
         public IActionResult EditGame(int id)
         {
-            Game game = _db.Games.Find(id);
-            if (game == null)
+            Device device = _db.Games.Find(id);
+            if (device == null)
             {
                 return NotFound();
             }
 
-            EditGameViewModel model = new EditGameViewModel { Name = game.Name, Genre = game.Genre, Publisher = game.Publisher, Price = game.Price };
+            EditGameViewModel model = new EditGameViewModel { Name = device.Name, Genre = device.Type, Publisher = device.Manufacturer, Price = device.Price };
             return View(model);
         }
 
         [HttpPost]
         public IActionResult EditGame(EditGameViewModel model)
         {
-            Game game = _db.Games.Find(model.Id);
+            Device device = _db.Games.Find(model.Id);
             if (ModelState.IsValid)
             {
-                if (game != null)
+                if (device != null)
                 {
-                    game.Name = model.Name;
-                    game.Genre = model.Genre;
-                    game.Publisher = model.Publisher;
-                    game.Price = model.Price;
+                    device.Name = model.Name;
+                    device.Type = model.Genre;
+                    device.Manufacturer = model.Publisher;
+                    device.Price = model.Price;
                     _db.SaveChanges();
                 }
             }

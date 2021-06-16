@@ -1,4 +1,4 @@
-﻿@model PracticeShop.Models.Game
+﻿@model WebStore.Models.Device
 
 <form method="post" asp-controller="Store" asp-action="AddGame">
     <div>
@@ -7,13 +7,13 @@
     </div>
 
     <div>
-        <label asp-for="Genre">Жанр</label><br />
-        <input type="text" asp-for="Genre" />
+        <label asp-for="Type">Жанр</label><br />
+        <input type="text" asp-for="Type" />
     </div>
 
     <div>
-        <label asp-for="Publisher">Издатель</label><br />
-        <input type="text" asp-for="Publisher" />
+        <label asp-for="Manufacturer">Издатель</label><br />
+        <input type="text" asp-for="Manufacturer" />
     </div>
 
     <div>

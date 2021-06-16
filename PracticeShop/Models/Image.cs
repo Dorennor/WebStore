@@ -1,4 +1,4 @@
-﻿namespace PracticeShop.Models
+﻿namespace WebStore.Models
 {
     public class Image
     {

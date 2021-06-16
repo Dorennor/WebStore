@@ -1,14 +1,12 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using PracticeShop.Models;
-using PracticeShop.ViewModels;
-using System;
-using System.IO;
+
 using System.Linq;
 using System.Threading.Tasks;
+using WebStore.Models;
+using WebStore.ViewModels;
 
-namespace PracticeShop.Controllers
+namespace WebStore.Controllers
 {
     public class AccountController : Controller
     {

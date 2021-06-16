@@ -1,25 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\Dorennor\\Practice\\PracticeShop\\PracticeShop.csproj": {}
+    "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\PracticeShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\Dorennor\\Practice\\PracticeShop\\PracticeShop.csproj": {
+    "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\PracticeShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\Dorennor\\Practice\\PracticeShop\\PracticeShop.csproj",
+        "projectUniqueName": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\PracticeShop.csproj",
         "projectName": "PracticeShop",
-        "projectPath": "C:\\Users\\User\\source\\repos\\Dorennor\\Practice\\PracticeShop\\PracticeShop.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\Dorennor\\Practice\\PracticeShop\\obj\\",
+        "projectPath": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\PracticeShop.csproj",
+        "packagesPath": "C:\\Users\\vovar\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\vovar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -30,6 +30,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -41,6 +42,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -73,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

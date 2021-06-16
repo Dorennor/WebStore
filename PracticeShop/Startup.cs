@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PracticeShop.Models;
+using WebStore.Models;
 
-namespace PracticeShop
+namespace WebStore
 {
     public class Startup
     {

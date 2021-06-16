@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using PracticeShop.Models;
+using WebStore.Models;
 using System;
 
-namespace PracticeShop
+namespace WebStore
 {
     public class Program
     {

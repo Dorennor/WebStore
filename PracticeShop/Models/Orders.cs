@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PracticeShop.Models
+namespace WebStore.Models
 {
-    public class Library
+    public class Orders
     {
         [Key]
         public int ID { get; set; }
@@ -10,12 +10,12 @@ namespace PracticeShop.Models
         public string UserID { get; set; }
         public string GamesID { get; set; }
 
-        public Library(string userID)
+        public Orders(string userID)
         {
             UserID = userID;
         }
 
-        public Library(string userName, string gamesID) : this(userName)
+        public Orders(string userName, string gamesID) : this(userName)
         {
             GamesID = gamesID;
         }

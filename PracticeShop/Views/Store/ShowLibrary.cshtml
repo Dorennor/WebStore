@@ -1,4 +1,5 @@
-﻿@model List<Game>
+﻿@using WebStore.Models
+@model List<WebStore.Models.Device>
 
 <div>
     @if (Model != null)
@@ -17,17 +18,17 @@
             <td>
             </td>
         </tr>
-        @foreach (Game game in Model)
+        @foreach (Device game in Model)
         {
             <tr>
                 <td>
                     <p>@game.Name</p>
                 </td>
                 <td>
-                    <p>@game.Genre</p>
+                    <p>@game.Type</p>
                 </td>
                 <td>
-                    <p>@game.Publisher</p>
+                    <p>@game.Manufacturer</p>
                 </td>
                 <td>
                     <form method="post" asp-route-id="@game.ID" asp-action="DeleteGameFromLibrary">

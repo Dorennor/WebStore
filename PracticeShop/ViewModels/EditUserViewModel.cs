@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
-namespace PracticeShop.ViewModels
+namespace WebStore.ViewModels
 {
     public class EditUserViewModel
     {

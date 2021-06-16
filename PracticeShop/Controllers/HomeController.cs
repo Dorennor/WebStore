@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PracticeShop.Models;
+using WebStore.Models;
 using System.Diagnostics;
 using System.Linq;
 
-namespace PracticeShop.Controllers
+namespace WebStore.Controllers
 {
     public class HomeController : Controller
     {

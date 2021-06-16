@@ -1,4 +1,4 @@
-﻿@model List<Game>;
+﻿@model List<WebStore.Models.Device>;
 
 <div>
     <div>
@@ -26,10 +26,10 @@
         <p>@game.Name</p>
     </td>
     <td>
-        <p>@game.Genre</p>
+        <p>@game.Type</p>
     </td>
     <td>
-        <p>@game.Publisher</p>
+        <p>@game.Manufacturer</p>
     </td>
     <td>
         @if (game.Price == 0)
