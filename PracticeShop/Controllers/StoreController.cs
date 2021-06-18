@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using WebStore.Models;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using WebStore.ViewModels;
@@ -68,27 +71,60 @@ namespace WebStore.Controllers
         [HttpGet]
         public IActionResult ShowTransactions()
         {
-            return View();
+            Debug.WriteLine(_db.Transactions.First().UserName);
+            return View(_db.Transactions);
         }
 
         [HttpPost]
         public IActionResult AddToBin(int id)
         {
-            _bin.Add(_db.Devices.Where(l => l.Id.Equals(id)).ToList().First());
+            _bin.Add(_db.Devices.Find(id));
             Debug.WriteLine(_bin.Count);
             return RedirectToAction("Index", "Store");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteFromBin(int id)
+        {
+            _bin.Remove(_bin.Where(l => l.Id.Equals(id)).ToList().First());
+            return RedirectToAction("Index", "Store");
+        }
+
+        private Device Apriori()
+        {
+            return new Device();
         }
 
         [HttpGet]
         public IActionResult UserBin()
         {
-            return View(_bin);
+            UserBin bin = new UserBin(_bin, Apriori());
+            return View(bin);
         }
 
         [HttpPost]
         public IActionResult Buy()
         {
+            List<string> serialNumbers = new List<string>();
+            List<double> prices = new List<double>();
 
+            foreach (var i in _bin)
+            {
+                serialNumbers.Add(i.SerialNumber);
+                prices.Add(i.Price);
+            }
+            Debug.WriteLine(User.Identity.Name);
+            Debug.WriteLine(DateTime.Now.ToString(CultureInfo.CurrentCulture));
+            _db.Transactions.AddRange(
+                new Transaction
+                {
+                    UserName = User.Identity.Name,
+                    Date = DateTime.Now.ToString(CultureInfo.CurrentCulture),
+                    SerialNumber = JsonSerializer.Serialize(serialNumbers),
+                    Price = JsonSerializer.Serialize(prices)
+                });
+            _db.SaveChanges();
+            _bin.Clear();
             return RedirectToAction("Index");
         }
 

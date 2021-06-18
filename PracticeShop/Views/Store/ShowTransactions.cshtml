@@ -1,48 +1,41 @@
-﻿@*@using WebStore.Models
-@model List<WebStore.Models.Device>
+﻿@model IEnumerable<WebStore.Models.Transaction>;
 
 <div>
-    @if (Model != null)
-    {
-        <table class="table">
+    <div>
+        <p class="TitleText">Transactions</p>
+    </div>
+    <table class="table">
         <tr>
             <td>
-                <p>Название игры</p>
+                <p>UserName</p>
             </td>
             <td>
-                <p>Жанр</p>
+                <p>Date</p>
             </td>
             <td>
-                <p>Издатель</p>
+                <p>SerialNumbers</p>
             </td>
             <td>
+                <p>Prices</p>
             </td>
         </tr>
-        @foreach (Device game in Model)
+        @foreach (var device in Model)
         {
             <tr>
                 <td>
-                    <p>@game.Name</p>
+                    <p>@device.UserName</p>
                 </td>
                 <td>
-                    <p>@game.Type</p>
+                    <p>@device.Date</p>
                 </td>
                 <td>
-                    <p>@game.Manufacturer</p>
+                    <p>@device.SerialNumber</p>
                 </td>
                 <td>
-                    <form method="post" asp-route-id="@game.ID" asp-action="DeleteGameFromLibrary">
-                        <button type="submit" class="btn btn-sm btn-danger">
-                            Удалить из библиотеки
-                        </button>
-                    </form>
+                    <p>@device.Price</p>
                 </td>
             </tr>
         }
     </table>
-    }
-    else
-    {
-        <p class="text-white">Ваша библиотека пуста!</p>
-    }
-</div>*@
+   
+</div>

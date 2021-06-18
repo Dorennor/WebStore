@@ -97,7 +97,7 @@ namespace WebStore.Controllers
             //User user = _db.Users.Where(u => u.UserName == User.Identity.Name).First();
             //if (_db.UserIcons.Any())
             //{
-            //    string path = _db.UserIcons.Where(i => i.UserId == _db.Users.Where(u => u.UserName == User.Identity.Name).First().Id).First().Path;
+            //    string path = _db.UserIcons.Where(i => i.UserName == _db.Users.Where(u => u.UserName == User.Identity.Name).First().Id).First().Path;
 
             //    using (var filestream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Open))
             //    {
@@ -146,7 +146,7 @@ namespace WebStore.Controllers
                     //        await model.UploadedFile.CopyToAsync(filestream);
                     //    }
 
-                    //    Image image = new Image { Name = name, Path = _appEnvironment.WebRootPath + path, UserId = user.Id };
+                    //    Image image = new Image { Name = name, Path = _appEnvironment.WebRootPath + path, UserName = user.Id };
                     //    _db.UserIcons.Add(image);
                     //    _db.SaveChanges();
                     //}
