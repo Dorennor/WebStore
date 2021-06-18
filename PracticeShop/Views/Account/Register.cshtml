@@ -1,5 +1,5 @@
 ﻿@model WebStore.ViewModels.RegisterViewModel
-<h2>Регистрация нового пользователя</h2>
+<h2>Registration of the new user</h2>
 <form method="post" asp-controller="Account" asp-action="Register">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
@@ -8,21 +8,21 @@
         <span asp-validation-for="Email"></span>
     </div>
     <div>
-        <label asp-for="UserName">Имя пользователя</label><br />
+        <label asp-for="UserName">Username</label><br />
         <input asp-for="UserName" />
         <span asp-validation-for="UserName"></span>
     </div>
     <div>
-        <label asp-for="Password">Пароль</label><br />
+        <label asp-for="Password">Password</label><br />
         <input asp-for="Password" />
         <span asp-validation-for="Password"></span>
     </div>
     <div>
-        <label asp-for="PasswordConfirm">Подтверждение пароляы</label><br />
+        <label asp-for="PasswordConfirm">Confirm password</label><br />
         <input asp-for="PasswordConfirm" />
         <span asp-validation-for="PasswordConfirm"></span>
     </div>
     <div>
-        <input type="submit" value="Регистрация" />
+        <input type="submit" value="Finish registry" />
     </div>
 </form>

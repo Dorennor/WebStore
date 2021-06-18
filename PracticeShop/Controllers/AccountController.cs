@@ -39,7 +39,7 @@ namespace WebStore.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Store");
                 }
                 else
                 {
@@ -73,7 +73,7 @@ namespace WebStore.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Store");
                     }
                 }
                 else
@@ -89,7 +89,7 @@ namespace WebStore.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Store");
         }
 
         public IActionResult Profile()
@@ -155,7 +155,7 @@ namespace WebStore.Controllers
                     if (result.Succeeded)
                     {
                         await Logout();
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Store");
                     }
                     else
                     {
@@ -192,7 +192,7 @@ namespace WebStore.Controllers
                     IdentityResult result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Store");
                     }
                     else
                     {

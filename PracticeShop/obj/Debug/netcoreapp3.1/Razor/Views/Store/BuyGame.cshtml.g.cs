@@ -14,20 +14,20 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "D:\Documents\Visual Studio Projects\WebStore\PracticeShop\Views\_ViewImports.cshtml"
-using PracticeShop;
+using WebStore;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "D:\Documents\Visual Studio Projects\WebStore\PracticeShop\Views\_ViewImports.cshtml"
-using PracticeShop.Models;
+using WebStore.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2b6c44c34b0a8d7e12ecda825f177db22183ba9e", @"/Views/Store/BuyGame.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a5f46923ca116a80ab11de1508f5e655b87ff6d4", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"82605dd9048b6e19a34fbc4d71121408894274c3", @"/Views/_ViewImports.cshtml")]
     public class Views_Store_BuyGame : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<String>
     {
         #pragma warning disable 1998

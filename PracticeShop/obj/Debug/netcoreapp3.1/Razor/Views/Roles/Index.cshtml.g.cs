@@ -14,20 +14,20 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "D:\Documents\Visual Studio Projects\WebStore\PracticeShop\Views\_ViewImports.cshtml"
-using PracticeShop;
+using WebStore;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "D:\Documents\Visual Studio Projects\WebStore\PracticeShop\Views\_ViewImports.cshtml"
-using PracticeShop.Models;
+using WebStore.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"acd3f1e247f02eb6c42787537da95704f81dcd08", @"/Views/Roles/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a5f46923ca116a80ab11de1508f5e655b87ff6d4", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"82605dd9048b6e19a34fbc4d71121408894274c3", @"/Views/_ViewImports.cshtml")]
     public class Views_Roles_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Delete", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -78,7 +78,7 @@ using PracticeShop.Models;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n    <td>\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "acd3f1e247f02eb6c42787537da95704f81dcd085160", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "acd3f1e247f02eb6c42787537da95704f81dcd085152", async() => {
                 WriteLiteral("\r\n            <button type=\"submit\" class=\"btn btn-sm btn-danger\">\r\n                Удалить\r\n            </button>\r\n        ");
             }
             );
@@ -121,7 +121,7 @@ using PracticeShop.Models;
 #line hidden
 #nullable disable
             WriteLiteral("</table>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "acd3f1e247f02eb6c42787537da95704f81dcd088142", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "acd3f1e247f02eb6c42787537da95704f81dcd088134", async() => {
                 WriteLiteral("Добавить роль");
             }
             );
@@ -137,7 +137,7 @@ using PracticeShop.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "acd3f1e247f02eb6c42787537da95704f81dcd089304", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "acd3f1e247f02eb6c42787537da95704f81dcd089296", async() => {
                 WriteLiteral("Список пользователей");
             }
             );

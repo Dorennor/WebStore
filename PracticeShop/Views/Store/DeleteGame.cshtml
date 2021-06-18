@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebStore.Models.Device>;
+﻿@*@model IEnumerable<WebStore.Models.Device>;
 
 <div>
     <table class="table">
@@ -16,7 +16,7 @@
                     <p>@game.Name</p>
                 </td>
                 <td>
-                    <form method="post" asp-route-id="@game.ID" asp-action="DeleteGame">
+                    <form method="post" asp-route-id="@game.Id" asp-action="DeleteGame">
                         <button type="submit" class="btn btn-sm btn-danger">
                             Удалить
                         </button>
@@ -25,4 +25,4 @@
             </tr>
         }
     </table>
-</div>
+</div>*@

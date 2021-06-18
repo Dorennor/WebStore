@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebStore.Models.Device>;
+
+<div>
+    <div>
+        <p class="TitleText">New items</p>
+    </div>
+    <table class="table">
+        <tr>
+            <td>
+                <p>Image</p>
+            </td>
+            <td>
+                <p>Name</p>
+            </td>
+            <td>
+                <p>Manufacturer</p>
+            </td>
+            <td>
+                <p>Description</p>
+            </td>
+            <td>
+                <p>Price в $</p>
+            </td>
+            <td>
+                <p>Serial Number</p>
+            </td>
+            <td>
+                <p></p>
+            </td>
+        </tr>
+        @foreach (var device in Model)
+        {
+            <tr>
+                <td>
+                    <p><img src=@device.Image alt="No image"  width="100" height="100"/></p>
+                </td>
+                <td>
+                    <p>@device.Name</p>
+                </td>
+                <td>
+                    <p>@device.Manufacturer</p>
+                </td>
+                <td>
+                    <p>@device.Description</p>
+                </td>
+                <td>
+                    <p>@device.Price</p>
+                </td>
+                <td>
+                    <p>@device.SerialNumber</p>
+                </td>
+                <td>
+                    <form method="post" asp-action="Buy">
+                        <input type="submit" value="Купить" class="button" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

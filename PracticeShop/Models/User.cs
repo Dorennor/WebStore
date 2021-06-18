@@ -4,5 +4,7 @@ namespace WebStore.Models
 {
     public class User : IdentityUser
     {
+        public string Image { get; set; }
+        public Transaction Transaction { get; set; }
     }
 }

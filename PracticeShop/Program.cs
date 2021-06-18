@@ -18,7 +18,7 @@ namespace WebStore
 
                 try
                 {
-                    var context = services.GetRequiredService<StoreContextDB>();
+                    var context = services.GetRequiredService<StoreContextDb>();
                     Seed.Initialize(context);
                 }
                 catch (Exception ex)

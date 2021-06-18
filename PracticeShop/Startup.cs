@@ -18,7 +18,7 @@ namespace WebStore
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<StoreContextDB>(options =>
+            services.AddDbContext<StoreContextDb>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("StoreConnection")));
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -53,7 +53,7 @@ namespace WebStore
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Store}/{action=Index}/{id?}");
             });
         }
     }
