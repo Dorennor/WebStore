@@ -14,8 +14,9 @@ namespace WebStore.Controllers
 {
     public class StoreController : Controller
     {
-        private StoreContextDb _db;
-        private static List<Device> _bin = new List<Device>();
+        private static UserBin finalBin;
+        private static List<Device> _bin;
+        private StoreContextDb _db { get; }
         private ApplicationContext _users;
 
         public StoreController(StoreContextDb context, ApplicationContext users)
@@ -78,6 +79,7 @@ namespace WebStore.Controllers
         [HttpPost]
         public IActionResult AddToBin(int id)
         {
+            _bin ??= new List<Device>();
             _bin.Add(_db.Devices.Find(id));
             Debug.WriteLine(_bin.Count);
             return RedirectToAction("Index", "Store");
@@ -92,14 +94,64 @@ namespace WebStore.Controllers
 
         private Device Apriori()
         {
-            return new Device();
+            var transactionsCount = _db.Transactions.Count();
+            double countSupp;
+            double countConf = 0;
+            Device temp = new Device();
+      
+            List<AprioriStats> stats = _db.Devices.Select(device => new AprioriStats {Device = device}).ToList();
+
+            var transactions = _db.Transactions.ToList();
+            var devices = _db.Devices.ToList();
+            var item = _bin[new Random().Next(0, _bin.Count - 1)];
+
+            foreach (var transaction in transactions)
+            {
+                if (transaction.SerialNumber.Contains(item.SerialNumber))
+                {
+                    countConf++;
+                }
+            }
+         
+            foreach (var device in devices)
+            {
+                countSupp = 0;
+                foreach (var transaction in transactions)
+                {
+                    if (transaction.SerialNumber.Contains(item.SerialNumber) &&
+                        transaction.SerialNumber.Contains(device.SerialNumber))
+                    {
+                        countSupp++;
+                    }
+                    stats.Where(l => l.Device.SerialNumber == device.SerialNumber).First().Support = countSupp / transactionsCount;
+                    stats.Where(l => l.Device.SerialNumber == device.SerialNumber).First().Confidence = countConf / countSupp;
+                    stats.Where(l => l.Device.SerialNumber == device.SerialNumber).First().Lift =
+                        stats.Where(l => l.Device.SerialNumber == device.SerialNumber).First().Support /
+                        stats.Where(l => l.Device.SerialNumber == device.SerialNumber).First().Confidence
+                        ;
+                }
+            }
+            
+            double previousRes = 0;
+
+            foreach (var device in stats)
+            {
+                if (device.Device.SerialNumber.Contains(item.SerialNumber)) continue;
+                
+                if (previousRes < device.Lift)
+                {
+                    previousRes = device.Lift;
+                    temp = device.Device;
+                }
+            }
+            return temp;
         }
 
         [HttpGet]
         public IActionResult UserBin()
         {
-            UserBin bin = new UserBin(_bin, Apriori());
-            return View(bin);
+            finalBin = new UserBin(_bin, Apriori());
+            return View(finalBin);
         }
 
         [HttpPost]
@@ -113,8 +165,6 @@ namespace WebStore.Controllers
                 serialNumbers.Add(i.SerialNumber);
                 prices.Add(i.Price);
             }
-            Debug.WriteLine(User.Identity.Name);
-            Debug.WriteLine(DateTime.Now.ToString(CultureInfo.CurrentCulture));
             _db.Transactions.AddRange(
                 new Transaction
                 {

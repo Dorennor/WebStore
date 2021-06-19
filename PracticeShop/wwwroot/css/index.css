@@ -13,7 +13,7 @@
 
 input {
     color: black;
-    width: 100px;
+    width: auto;
 }
 
 .div-profile {
