@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace WebStore.ViewModels
 {
@@ -10,7 +10,7 @@ namespace WebStore.ViewModels
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Display(Name = "Имя пользователя")]
+        [Display(Name = "Username")]
         public string UserName { get; set; }
 
         public IFormFile UploadedFile { get; set; }

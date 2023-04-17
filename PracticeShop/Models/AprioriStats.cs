@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace WebStore.Models
+﻿namespace WebStore.Models
 {
     public class AprioriStats
     {
-        public double Support { get; set; } = default;
-        public double Confidence { get; set; } = default;
-        public double Lift { get; set; } = default;
-        public Device Device { get; set; } = default;
-
-
+        public double Support { get; set; }
+        public double Confidence { get; set; }
+        public double Lift { get; set; }
+        public Product Product { get; set; }
     }
 }

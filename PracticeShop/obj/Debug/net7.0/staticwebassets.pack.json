@@ -1,0 +1,333 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\Images\\Products\\BERGMUND.webp",
+      "PackagePath": "staticwebassets\\Images\\Products\\BERGMUND.webp"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\Images\\Products\\EKERÖ.webp",
+      "PackagePath": "staticwebassets\\Images\\Products\\EKERÖ.webp"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\Images\\Products\\JÄTTEBO.webp",
+      "PackagePath": "staticwebassets\\Images\\Products\\JÄTTEBO.webp"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\Images\\Products\\PERSBOL.webp",
+      "PackagePath": "staticwebassets\\Images\\Products\\PERSBOL.webp"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\Images\\Products\\POÄNG.webp",
+      "PackagePath": "staticwebassets\\Images\\Products\\POÄNG.webp"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\Images\\Products\\STRANDMON.webp",
+      "PackagePath": "staticwebassets\\Images\\Products\\STRANDMON.webp"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\css\\index.css",
+      "PackagePath": "staticwebassets\\css\\index.css"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\css\\normalize.css",
+      "PackagePath": "staticwebassets\\css\\normalize.css"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\css\\testJS.css",
+      "PackagePath": "staticwebassets\\css\\testJS.css"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\art.jpg",
+      "PackagePath": "staticwebassets\\image\\art.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\art2.jpg",
+      "PackagePath": "staticwebassets\\image\\art2.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\back\\back1.jpg",
+      "PackagePath": "staticwebassets\\image\\back\\back1.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\back\\back10.jpg",
+      "PackagePath": "staticwebassets\\image\\back\\back10.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\back\\back2.jpg",
+      "PackagePath": "staticwebassets\\image\\back\\back2.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\back\\back3.jpg",
+      "PackagePath": "staticwebassets\\image\\back\\back3.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\back\\back3.png",
+      "PackagePath": "staticwebassets\\image\\back\\back3.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\back\\back4.png",
+      "PackagePath": "staticwebassets\\image\\back\\back4.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\back\\back5.png",
+      "PackagePath": "staticwebassets\\image\\back\\back5.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\back\\back6.jpg",
+      "PackagePath": "staticwebassets\\image\\back\\back6.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\back\\back7.jpg",
+      "PackagePath": "staticwebassets\\image\\back\\back7.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\back\\back8.jpg",
+      "PackagePath": "staticwebassets\\image\\back\\back8.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\back\\back9.jpg",
+      "PackagePath": "staticwebassets\\image\\back\\back9.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\border\\border1.png",
+      "PackagePath": "staticwebassets\\image\\border\\border1.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\border\\border10.png",
+      "PackagePath": "staticwebassets\\image\\border\\border10.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\border\\border11.png",
+      "PackagePath": "staticwebassets\\image\\border\\border11.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\border\\border2.jpg",
+      "PackagePath": "staticwebassets\\image\\border\\border2.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\border\\border3.jpg",
+      "PackagePath": "staticwebassets\\image\\border\\border3.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\border\\border4.jpg",
+      "PackagePath": "staticwebassets\\image\\border\\border4.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\border\\border5.png",
+      "PackagePath": "staticwebassets\\image\\border\\border5.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\border\\border6.jpg",
+      "PackagePath": "staticwebassets\\image\\border\\border6.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\border\\border7.jpg",
+      "PackagePath": "staticwebassets\\image\\border\\border7.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\border\\border8.png",
+      "PackagePath": "staticwebassets\\image\\border\\border8.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\border\\border9.jpg",
+      "PackagePath": "staticwebassets\\image\\border\\border9.jpg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\dragon_PNG84560.png",
+      "PackagePath": "staticwebassets\\image\\dragon_PNG84560.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\dragon_PNG981.png",
+      "PackagePath": "staticwebassets\\image\\dragon_PNG981.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\logo.png",
+      "PackagePath": "staticwebassets\\image\\logo.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\search.png",
+      "PackagePath": "staticwebassets\\image\\search.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\side.png",
+      "PackagePath": "staticwebassets\\image\\side.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\tag.png",
+      "PackagePath": "staticwebassets\\image\\tag.png"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\image\\user_icons\\admin_17_27_50_28_7_2020.jpeg",
+      "PackagePath": "staticwebassets\\image\\user_icons\\admin_17_27_50_28_7_2020.jpeg"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\js\\index.js",
+      "PackagePath": "staticwebassets\\js\\index.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\js\\testJS.js",
+      "PackagePath": "staticwebassets\\js\\testJS.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Documents\\Visual Studio Projects\\WebStore\\PracticeShop\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.WebStore.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.WebStore.props",
+      "PackagePath": "build\\WebStore.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.WebStore.props",
+      "PackagePath": "buildMultiTargeting\\WebStore.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.WebStore.props",
+      "PackagePath": "buildTransitive\\WebStore.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

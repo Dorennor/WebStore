@@ -1,57 +1,71 @@
-﻿@model List<WebStore.Models.Device>;
+﻿@model List<WebStore.Models.Product>;
 
 <div>
     <div>
-        <p class="TitleText">New items</p>
+        <p class="TitleText">Products</p>
     </div>
+
     <table class="table">
         <tr>
             <td>
                 <p>Image</p>
             </td>
+
             <td>
                 <p>Name</p>
             </td>
+
             <td>
                 <p>Manufacturer</p>
             </td>
+
             <td>
                 <p>Description</p>
             </td>
+
             <td>
-                <p>Price ₴</p>
+                <p>Price $</p>
             </td>
+
             <td>
                 <p>Serial Number</p>
             </td>
+
             <td>
                 <p></p>
             </td>
         </tr>
-        @foreach (var device in Model)
+
+        @foreach (var product in Model)
         {
             <tr>
                 <td>
-                    <p><img src="@device.Image" alt="No image" width="100" height="100"/></p>
+                    <p><img src="@product.Image" alt="No image" width="100" height="100"/></p>
                 </td>
+
                 <td>
-                    <p>@device.Name</p>
+                    <p>@product.Name</p>
                 </td>
+
                 <td>
-                    <p>@device.Manufacturer</p>
+                    <p>@product.Manufacturer</p>
                 </td>
+
                 <td>
-                    <p>@device.Description</p>
+                    <p>@product.Description</p>
                 </td>
+
                 <td>
-                    <p>@device.Price</p>
+                    <p>@product.Price</p>
                 </td>
+
                 <td>
-                    <p>@device.SerialNumber</p>
+                    <p>@product.SerialNumber</p>
                 </td>
+
                 <td>
-                    <form method="post" asp-controller="Store" asp-action="AddToBin" asp-route-id="@device.Id">
-                        <input type="submit" value="Add to bin"/>
+                    <form method="post" asp-controller="Store" asp-action="AddToBin" asp-route-id="@product.Id">
+                        <input class="btn btn-sm btn-primary" type="submit" value="Add to bin" />
                     </form>
                 </td>
             </tr>}

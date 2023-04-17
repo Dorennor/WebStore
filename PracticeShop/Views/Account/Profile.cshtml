@@ -1,13 +1,9 @@
-﻿@*@model PracticeShop.ViewModels.UserProfileViewModel*@
-@model WebStore.Models.User
+﻿@model WebStore.Models.User
 <div>
-    @*<div class="flex-md-column">
-        <img src="@Url.Action("GetImage", Model.Path)" class="avatar-image" />
-    </div>*@
 
     <table class="table">
         <tr>
-            <td>Имя пользователя: </td>
+            <td>Username: </td>
             <td>@Model.UserName</td>
         </tr>
         <tr>
@@ -17,12 +13,12 @@
         <tr>
             <td>
                 <form method="get" asp-controller="Account" asp-action="EditAccount">
-                    <input type="submit" value="Редактировать профиль" />
+                    <input class="btn btn-primary" type="submit" value="Change profile" />
                 </form>
             </td>
             <td>
                 <form method="get" asp-controller="Account" asp-action="ChangePassword">
-                    <input type="submit" value="Сменить пароль" />
+                    <input class="btn btn-primary" type="submit" value="Change password" />
                 </form>
             </td>
         </tr>

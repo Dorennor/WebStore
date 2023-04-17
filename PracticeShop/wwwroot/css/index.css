@@ -1,5 +1,5 @@
 * {
-    color: white;
+    color: black;
 }
 
 .avatar-image {
@@ -51,14 +51,13 @@ header {
     height: inherit;
     width: 100%;
     display: flex;
-    background: linear-gradient(#ff0000,#390000);
+    background: linear-gradient(blue, cyan);
     top: 0;
     left: 0;
 }
 
 body {
-    background-color: black;
-    background-image: url(../image/back/back10.jpg);
+    background: linear-gradient(white, whitesmoke);
 }
 
 .logo {
@@ -74,7 +73,7 @@ body {
     padding: 15px;
     font-size: 40px;
     border: none;
-    background: linear-gradient(#ff0000,#390000);
+    background: linear-gradient(blue, cyan);
     color: white;
 }
 
@@ -97,17 +96,16 @@ body {
 }
 
     .dropdown-content.menu a {
-        background: linear-gradient(45deg,#390000, #ff0000);
+        background: linear-gradient(blue, cyan);
         color: white;
         padding: 12px 16px;
         text-decoration: none;
         display: block;
-        border-radius: 25px;
         border: 1px solid black;
     }
 
         .dropdown-content.menu a:hover {
-            background: linear-gradient(45deg,#010000, #ff0000);
+            background: linear-gradient(blue, cyan);
         }
 
 .dropdown:hover .dropdown-content {
@@ -115,26 +113,24 @@ body {
 }
 
 .dropdown:hover .dropbtn {
-    background: linear-gradient(#ff0000,#010000);
+    background: linear-gradient(blue, cyan);
 }
 
 .dropdown-content input {
     border: 1px solid black;
-    background: linear-gradient(45deg,#390000, #ff0000);
+    background: linear-gradient(blue, cyan);
     color: white;
     padding: 15px 16px;
     text-decoration: none;
     display: block;
-    border-radius: 25px;
     font-size: 15px;
 }
 
 form.dropdown-content.login {
     border: 1px solid black;
-    background: linear-gradient(45deg,#390000, #ff0000);
+    background: linear-gradient(blue, cyan);
     color: white;
-    border-radius: 25px;
-    padding: 15px 16px;
+    padding: 15px;
     font-size: 15px;
 }
 
@@ -151,7 +147,6 @@ header input::-webkit-input-placeholder {
 }
 
 div.titleTag {
-    background-image: url(../image/back/back7.jpg);
     background-size: inherit auto;
     height: auto;
     text-align: center;
@@ -177,23 +172,15 @@ div.tag p {
 
 aside {
     width: 300px;
-    ;
     height: inherit;
     float: left;
 }
 
 main {
-    border-style: solid;
-    border-image-slice: 140;
-    border-image-width: 45px;
-    border-image-outset: 0px;
-    border-image-repeat: round round;
-    border-image-source: url(../image/border/border11.png);
     width: 100%;
     min-width: 500px;
     height: inherit;
     float: left;
-    background-image: url(../image/back/back4.png);
     background-size: 100px;
     margin: 0px 5px 0px 10px;
 }
@@ -224,7 +211,5 @@ aside img {
     border-image-width: 45px;
     border-image-outset: 0px;
     border-image-repeat: round round;
-    border-image-source: url(../image/border/border11.png);
-    background-image: url(../image/back/back4.png);
     background-size: 100px;
 }

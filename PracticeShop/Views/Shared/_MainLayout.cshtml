@@ -1,104 +1,81 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Device Store</title>
-    <meta charset="utf-8">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <link rel="stylesheet" href="~/css/index.css">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-</head>
-<body>
-    <header>
-        @*<a href="#"><img class="logo" src="~/image/logo.png"></a>*@
+    <head>
+        <title>Store</title>
+        <meta charset="utf-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <link rel="stylesheet" href="~/css/index.css">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </head>
 
-        <div class="container">
-
-            <div class="dropdown">
-                <button class="dropbtn">Menu</button>
-                <div class="dropdown-content menu">
-                    <a class="nav-link" asp-area="" asp-controller="Store" asp-action="Index">Main page</a>
-                    <a class="nav-link" asp-area="" asp-controller="Store" asp-action="UserBin">Bin</a>
-                </div>
-            </div>
-
-            @*@if (User.IsInRole("admin"))
-            {
+    <body>
+        <header>
+            <div class="container">
+    
                 <div class="dropdown">
-                    <button class="dropbtn">ИГРЫ</button>
+                    <button class="dropbtn">Menu</button>
+    
                     <div class="dropdown-content menu">
-                        <a class="nav-link" asp-area="" asp-controller="Store" asp-action="AddDevice">Добавить игру</a>
-                        <a class="nav-link" asp-area="" asp-controller="Store" asp-action="EditGameView">Редактировать игру</a>
-                        <a class="nav-link" asp-area="" asp-controller="Store" asp-action="DeleteGame">Удалить игру</a>
+                        <a class="nav-link" asp-area="" asp-controller="Store" asp-action="Index">Main page</a>
+                        <a class="nav-link" asp-area="" asp-controller="Store" asp-action="SearchItemPage">Search</a>
+                        <a class="nav-link" asp-area="" asp-controller="Store" asp-action="UserBin">Cart</a>
                     </div>
                 </div>
+                
+                @if (User.Identity.IsAuthenticated)
+                {
+    
+                    <div class="dropdown float-right">
+                        <button class="dropbtn text-capitalize">@User.Identity.Name</button>
+    
+                        <div class="dropdown-content menu">
+                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a>
+                            <a class="nav-link" asp-area="" asp-controller="Store" asp-action="ShowTransactions">Transactions</a>
 
-                <div class="dropdown">
-                    <button class="dropbtn">ПОЛЬЗОВАТЕЛИ</button>
-                    <div class="dropdown-content menu">
-                        <a class="nav-link" asp-area="" asp-controller="Roles" asp-action="Index">Менеджмент ролей</a>
+                            @if (User.IsInRole("admin"))
+                            {
+                                <a class="nav-link" asp-area="" asp-controller="Store" asp-action="AddProduct">Add product</a>
+                                <a class="nav-link" asp-area="" asp-controller="Store" asp-action="EditProductView">Edit product</a>
+                                <a class="nav-link" asp-area="" asp-controller="Store" asp-action="DeleteProduct">Delete product</a>
+                                <a class="nav-link" asp-area="" asp-controller="Roles" asp-action="Index">Roles management</a>
+                            }
+
+                            <form class="text-lg-right" method="post" asp-controller="Account" asp-action="Logout">
+                                <input class="nav-link" type="submit" value="Exit" />
+                            </form>
+                        </div>
                     </div>
-                </div>
-            }*@
-            @if (User.Identity.IsAuthenticated)
-            {
-
-                <div class="dropdown float-right">
-                    <button class="dropbtn text-capitalize">@User.Identity.Name</button>
-                    <div class="dropdown-content menu">
-                        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a>
-                        <a class="nav-link" asp-area="" asp-controller="Store" asp-action="ShowTransactions">Orders</a>
-                        <form class="text-lg-right" method="post" asp-controller="Account" asp-action="Logout">
-                            <input type="submit" value="Exit" />
+                }
+                else
+                {
+                    <div class="dropdown float-right">
+                        <button class="dropbtn search">Account</button>
+    
+                        <form class="dropdown-content menu" method="post">
+                            <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a><br />
+                            <a class="nav-link" asp-controller="Account" asp-action="Register">Register</a><br />
                         </form>
                     </div>
-                </div>
-            }
-            else
-            {
-                <div class="dropdown float-right">
-                    <button class="dropbtn search">Account</button>
-                    <form class="dropdown-content menu" method="post">
-                        <a class="nav-link text-white" asp-controller="Account" asp-action="Login">Login</a><br />
-                        <a class="nav-link text-white" asp-controller="Account" asp-action="Register">Register</a><br />
-                    </form>
-                </div>
-            }
+                }
+            </div>
+        </header>
+    
+        <div>
+    
+            <div class="main">
+                <main>
+                    <div class="table-list">
+                        @RenderBody()
+                    </div>
+                </main>
+            </div>
         </div>
-    </header>
-    <div>
-
-        <div class="main">
-            <aside class="side-l">
-                <div class="side-div">
-                </div>
-                <img src="~/image/side.png">
-            </aside>
-
-            <main>
-                <div class="table-list">
-                    @RenderBody()
-                </div>
-            </main>
-
-            <aside class="side-r">
-                <div class="side-div">
-                </div>
-                <img src="~/image/side.png">
-            </aside>
-        </div>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - Devices Shop - <a asp-area="" asp-controller="Store" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
-</body>
+    
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)
+    </body>
 </html>

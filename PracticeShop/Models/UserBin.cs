@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace WebStore.Models
 {
     public class UserBin : IEnumerable
     {
-        public List<Device> Bin { get; set; }
-        public Device Offer { get; set; }
+        public List<Product> Bin { get; set; }
+        public Product Offer { get; set; }
 
         public UserBin()
         {
-            Bin ??= new List<Device>();
+            Bin ??= new List<Product>();
         }
 
-        public UserBin(List<Device> bin, Device offer)
+        public UserBin(List<Product> bin, Product offer)
         {
             Bin = bin;
             Offer = offer;
         }
+
         public IEnumerator GetEnumerator()
         {
             return Bin.GetEnumerator();

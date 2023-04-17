@@ -4,6 +4,5 @@ namespace WebStore.Models
 {
     public class User : IdentityUser
     {
-        
     }
 }

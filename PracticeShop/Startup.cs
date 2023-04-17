@@ -19,9 +19,9 @@ namespace WebStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<StoreContextDb>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("StoreConnection")));
+                options.UseSqlite(Configuration.GetConnectionString("StoreConnection")));
             services.AddDbContext<ApplicationContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<User, IdentityRole>(options =>
             {
